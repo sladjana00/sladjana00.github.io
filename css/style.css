@@ -1,0 +1,273 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #F3F6F8;
+	padding-top: 40px;
+}
+
+.container {
+	max-width: 1087px;
+	margin: 0 auto;
+}
+
+.panel {
+	margin-top: 36px;
+	box-shadow: 0px 17px 41px rgba(79, 115, 255, 0.08), 0px 2.12866px 5.13384px rgba(79, 115, 255, 0.04);
+	border-radius: 4px;
+}
+
+.panel .panel-title {
+	background-color: #DAEAF4;
+	border-radius: 4px 4px 0px 0px;
+	padding: 22px 0 10px 33px;
+
+}
+
+.panel .panel-title h2 {
+	font-size: 20px;
+	letter-spacing: 0.4px;
+	font-weight: 500;
+}
+
+.panel .panel-body {
+	padding: 24px 33px 28px 33px;
+	background-color: #fff;
+	display: flex;
+}
+
+.panel .panel-body .columns {
+	width: 33%;
+	display: block;
+	padding-left: 25px;
+}
+
+.panel .panel-body .columns:first-child {
+	padding-left: 0;
+}
+
+.panel .panel-body .columns .column-1, .panel .panel-body .columns .column-2 {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.panel .panel-body .columns .column-3 p {
+	margin-bottom: 0;
+}
+
+.panel .panel-body .columns p {
+	font-size: 14px;
+	color: #525666;
+	letter-spacing: 1px;
+	margin-bottom: 15px;
+}
+
+.panel .panel-body .columns.column-with-separator {
+	position: relative;
+}
+
+.panel .panel-body .columns.column-with-separator:after {
+	content: '';
+	display: inline-block;
+	width: 1px;
+	height: 100px;
+	background-color: #DCDFE8;
+	position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.panel .panel-body .columns .scan-summary {
+	position: relative;
+	background-color: #F7F9FF;
+	border-radius: 4px;
+	padding: 17px 16px 17px 16px;
+	max-width: 307px;
+}
+
+.panel .panel-body .columns .scan-summary img {
+	position: absolute;
+}
+
+.panel .panel-body .columns .scan-summary p {
+	margin-left: 40px;
+	margin-bottom: 0;
+}
+
+.panel .panel-body .columns p a {
+	color: #4F73FF;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.panel .panel-body .columns p span.ip-addr {
+	font-size: 14px;
+    color: #525666;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.panel .panel-body .columns p span.ip-addr:before {
+	content: '';
+	display: inline-block;
+	width: 1px;
+	height: 12px;
+	margin: 0px 6px;
+	background-color: #DCDFE8;
+}
+
+.panel .panel-body .columns p span {
+	font-size: 12px;
+	color: #B7BBC7;
+	font-weight: 400;
+	display: block;
+	letter-spacing: 0;
+}
+
+.progress-bar {
+	width: 190px;
+	height: 18px;
+	border-radius: 4px;
+	background: #0F1E57;
+	overflow: hidden;
+	display: flex;
+}
+
+.progress-wrapper {
+	display: flex;
+	margin-top: 15px;
+}
+
+.progress-bar .progress-blue {
+ 	width: 50%;
+ 	background: #4F73FF;
+}
+
+.progress-bar .progress-orange {
+	width: 30%;
+	background: #FAA467;
+}
+
+.progress-p {
+	left: 32px;
+	top: 84px;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 22px;
+	color: #525666;
+	margin-right: 9px;
+	width: 76px;
+}
+
+.progress-bar .progress-blue-1 {
+	width: 60%;
+	background: #4F73FF;
+}
+
+.progress-bar .progress-orange-1 {
+	width: 40%;
+	background: #FAA467;
+}
+
+.progress-bar .progress-blue-2 {
+	width: 45%;
+	background: #4F73FF;
+}
+
+.progress-bar .progress-orange-2 {
+	width: 45%;
+	background: #FAA467;
+}
+
+
+.ellipse-wrapper {
+	display: inline-flex;
+	margin-top: 20px;
+} 
+
+.ellipse-wrapper .ellipse {
+	margin-right: 20px;
+	display: flex;
+}
+
+.ellipse-wrapper .ellipse p {
+	margin-left: 5px;
+}
+
+.ellipse1 {
+	background: #4F73FF;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+
+.ellipse2 {
+	background: #FAA467;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+
+.ellipse3 {
+	background: #0F1E57;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+
+ .ellipse-wrapper p {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+
+.panels-wrapper {
+	display: table;
+	width: 100%;
+}
+
+.panels-wrapper .panel.first-column {
+	width: 66%; 
+	float: left;
+	margin-right: 3%;
+}
+
+.panels-wrapper .panel.second-column {
+	width: 31%;
+	float: left;
+}
+
+.panels-wrapper .panel.second-column .panel-body {
+	display: block;
+}
+
+.additional-information {
+	margin-top: 32px;
+	padding: 38px 32px 36px 32px;
+	background-color: #fff;
+	border-radius: 4px;
+	box-shadow: 0px 17px 41px rgba(79, 115, 255, 0.08), 0px 2.12866px 5.13384px rgba(79, 115, 255, 0.04);
+}
+
+.additional-information .all-tabs a {
+	text-decoration: none;
+	color: #262B40;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+	padding: 14px 16px;
+	display: inline-block;
+}
+
+.additional-information .all-tabs a:hover {
+	background: #4F73FF;
+	box-shadow: 0px 8px 24px rgba(79, 115, 255, 0.08), 0px 2px 4px rgba(79, 115, 255, 0.2);
+	border-radius: 90px;
+	color: #fff;
+}
