@@ -1,191 +1,351 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Airgap</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Airgap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div class="container">
-		<img src="img/logo.png">
 
-		<div class="panel">
-			<div class="panel-title">
-				<h2>Scan information</h2>
-			</div>
+<div class="container">
+    <img src="img/logo.png">
 
-			<div class="panel-body">
-				<div class="columns column-with-separator">
-					<div class="scan-summary">
-						<img src="img/vector.png">
-						<p>2 Assets could be accessed if win10-u.demo.airgap.in is compromised by an attacker</p>
+    <div class="panel first-panel-section">
+        <div class="panel-title">
+            <h2>Scan information</h2>
+        </div>
+
+        <div class="panel-body">
+            <div class="columns column-with-separator">
+                <div class="scan-summary">
+                    <img src="img/vector.png">
+					<p><a href="#">2</a> Assets could be accessed if <a href="#">win10-u.demo.airgap.in</a> is compromised by an attacker</p>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column-1">
+                    <p>
+                        <span>Date and time</span>
+                        01/31/20 21:42
+                    </p>
+
+
+                    <p>
+                        <span>Duration</span>
+                        00:00:05
+                    </p>
+                </div>
+
+                <div class="column-2">
+                    <p>
+                        <span>Scanned by</span>
+                        Alice
+                    </p>
+
+                    <p>
+                        <span>Scan mode</span>
+                        Managed - Quick
+                    </p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column-3">
+                    <p>
+                        <span>Scanned from</span>
+                        win10-u.demo.airgap.in<span class="ip-addr">10.30.1.11</span>
+                    </p>
+                </div>
+
+                <div class="column-1">
+                    <p>
+                        <span>Network ranges details</span>
+                        <a href="#">Click to open</a>
+                    </p>
+                </div>
+
+                <div class="column-2">
+                    <p>
+                        <span>Assets details</span>
+                        <a href="#">Click to open</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panels-wrapper">
+        <div class="panel first-column">
+            <div class="panel-title">
+                <h2>Assets accessibility</h2>
+            </div>
+
+            <div class="panel-body charts-panel">
+                <div class="pie-chart-wrapper">
+					<div class="pie-chart-inner">
+						<div id="pieChart" class="pie-chart"></div>
+						<div class="chart-border"></div>
+					</div>
+					<div class="pie-chart-info">
+						<h3>Summary</h3>
+						<ul>
+							<li>Accessible 85%</li>
+							<li>Inaccessible 15%</li>
+						</ul>
 					</div>
 				</div>
 
-				<div class="columns">
-					<div class="column-1">
-						<p>
-							<span>Date and time</span>
-							01/31/20 21:42
-						</p>
-
-
-						<p>
-							<span>Duration</span>
-							00:00:05
-						</p>
-					</div>
-
-					<div class="column-2">
-						<p>
-							<span>Scanned by</span>
-							Alice
-						</p>
-
-						<p>
-							<span>Scan mode</span>
-							Managed - Quick
-						</p>
-					</div>
-				</div>
-				<div class="columns">
-					<div class="column-3">
-						<p>
-							<span>Scanned from</span>
-							win10-u.demo.airgap.in<span class="ip-addr">10.30.1.11</span>
-						</p>
-					</div>
-
-					<div class="column-1">
-						<p>
-							<span>Network ranges details</span>
-							<a href="#">Click to open</a>
-						</p>
-					</div>
-
-					<div class="column-2">
-						<p>
-							<span>Assets details</span>
-							<a href="#">Click to open</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="panels-wrapper">
-			<div class="panel first-column">
-				<div class="panel-title">
-					<h2>Assets accessibility</h2>
-				</div>
-
-				<div class="panel-body">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-				</div>
-			</div>
-
-			<div class="panel second-column">
-				<div class="panel-title">
-					<h2>Most common open ports</h2>
-				</div>
-
-				<div class="panel-body">
-					<div class="progress-wrapper">
-						<p class="progress-p">135 TCP</p>
-
-						<div class="progress-bar">
-							<div class="progress-blue">
-									
-							</div>
-							<div class="progress-orange">
-									
-							</div>
+				<div class="vertical-bars-wrapper">
+					<div class="vertical-bar-item">
+						<div class="vertical-bar">
+							<span>50%</span>
+							<div class="vertical-bar-filled" style="height: 50%"></div>
 						</div>
+						<p>Clients</p>
 					</div>
 
-					<div class="progress-wrapper">
-						<p class="progress-p">139 TCP</p>
-
-						<div class="progress-bar">
-							<div class="progress-blue-1">
-									
-							</div>
-							<div class="progress-orange-1">
-									
-							</div>
+					<div class="vertical-bar-item">
+						<div class="vertical-bar">
+							<span>95%</span>
+							<div class="vertical-bar-filled" style="height: 95%"></div>
 						</div>
+						<p>Servers</p>
 					</div>
 
-					<div class="progress-wrapper">
-						<p class="progress-p">49152 UDP</p>
-
-						<div class="progress-bar">
-							<div class="progress-blue-2">
-									
-							</div>
-							<div class="progress-orange-2">
-									
-							</div>
+					<div class="vertical-bar-item">
+						<div class="vertical-bar placeholder">
+							<span>95%</span>
+							<div class="vertical-bar-filled" style="height: 95%"></div>
 						</div>
+						<p class="disabled">Unknown</p>
 					</div>
 
-					<div class="ellipse-wrapper">
-						<div class="ellipse">
-							<div class="ellipse1"></div>
-							<p>Clients</p>
-						</div>
-
-						<div class="ellipse">
-							<div class="ellipse2"></div>
-							<p>Servers</p>
-						</div>
-
-						<div class="ellipse">
-							<div class="ellipse3"></div>
-							<p>Unknown</p>
-						</div>
-					</div>
 				</div>
-			</div>
-		</div>
-	
+            </div>
+        </div>
 
-		<div class="additional-information">
-			<div class="all-tabs">
-				<a href="#">IP Ranges Layout (1)</a>
-				<a href="#">Operating Systems (2)</a>
-				<a href="#">Opened Ports (150)</a>
-			</div>
+        <div class="panel second-column">
+            <div class="panel-title">
+                <h2>Most common open ports</h2>
+            </div>
 
-			<div class="all-content">
-				<div class="content-item">
-					<div class="accordions">
-						<img src="img/frame.png">
-						<p>Mixed IP Rangers
-							<span class="acc-span">1 Client Asset, 1 Server Asset</span>
-						</p>
-					</div>
-				</div>
+            <div class="panel-body">
+                <div class="progress-wrapper">
+                    <p class="progress-p">135 TCP</p>
 
-					<div class="content-item">
-						content2
-					</div>
+                    <div class="progress-bar">
+                        <div class="progress-blue" style="width: 45%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-orange" style="width: 35%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                    </div>
+                </div>
 
-					<div class="content-item">
-						content3
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="progress-wrapper">
+                    <p class="progress-p">139 TCP</p>
+                    <div class="progress-bar">
+                        <div class="progress-blue" style="width: 50%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-orange" style="width: 50%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                    </div>
+                </div>
+
+                <div class="progress-wrapper">
+                    <p class="progress-p">49152 UDP</p>
+
+                    <div class="progress-bar">
+                        <div class="progress-blue" style="width: 50%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-orange" style="width: 40%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                    </div>
+                </div>
+
+                <div class="ellipse-wrapper">
+                    <div class="ellipse">
+                        <div class="ellipse-item ellipse-blue"></div>
+                        <p>Clients</p>
+                    </div>
+
+                    <div class="ellipse">
+                        <div class="ellipse-item ellipse-orange"></div>
+                        <p>Servers</p>
+                    </div>
+
+                    <div class="ellipse">
+                        <div class="ellipse-item ellipse-darkblue"></div>
+                        <p>Unknown</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="additional-information">
+        <div class="all-tabs">
+            <a href="#" class="active" data-target="#tabs-content-1">IP Ranges Layout (1)</a>
+            <a href="#" data-target="#tabs-content-2">Operating Systems (2)</a>
+            <a href="#" data-target="#tabs-content-3">Opened Ports (150)</a>
+        </div>
+
+        <div class="all-content">
+            <div class="content-item active" id="tabs-content-1">
+
+                <div class="accordion">
+
+                    <div class="accordion-item-content">
+                        <div class="accordion-item" data-target="accordion-expand-content-1">
+                            <img src="img/half.png">
+                            <p><span class="ip-range">Mixed IP Rangers</span>Client Asset, 1 Server Asset</p>
+                        </div>
+
+                        <div class="accordion-item-content" data-expand="accordion-expand-content-1">
+                            <div class="accordion-item" data-target="accordion-expand-content-2">
+                                <img src="img/half.png">
+                                <p><span class="ip-range">10.*.*.*</span>Client Asset, 1 Server Asset</p>
+                            </div>
+
+                            <div class="accordion-item-content" data-expand="accordion-expand-content-2">
+                                <div class="accordion-item" data-target="accordion-expand-content-3">
+                                    <img src="img/half.png">
+                                    <p><span class="ip-range">10.30.*.*</span>Client Asset, 1 Server Asset</p>
+                                </div>
+
+                                <div class="accordion-item-content" data-expand="accordion-expand-content-3">
+                                    <div class="accordion-item" data-target="accordion-expand-content-4">
+                                        <img src="img/full-blue.png">
+                                        <p><span class="ip-range">10.30.1.*</span>Client Asset</p>
+                                    </div>
+
+                                    <div class="accordion-item-content" data-expand="accordion-expand-content-4">
+                                        <div class="accordion-item-resource">
+                                            <p>
+                                                <span>IP Address</span>
+                                                255.255.255.255
+                                            </p>
+
+                                            <p>
+                                                <span>Date and time</span>
+                                                01/31/2021 21:42
+                                            </p>
+
+                                            <p>
+                                                <span>Asset type</span>
+                                                Client
+                                            </p>
+
+                                            <p>
+                                                <span>Asset name</span>
+                                                win10-u
+                                            </p>
+
+                                            <p>
+                                                <span>OS</span>
+                                                Windows 10 Ente..
+                                            </p>
+
+                                            <p>
+                                                <span>Management</span>
+                                                Managed
+                                            </p>
+
+                                            <p>
+                                                <span>TCP open ports</span>
+                                                135, 139, 445 ...
+                                            </p>
+
+                                            <p>
+                                                <span>UDP open ports</span>
+                                                53, 67, 68, 69 ...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item expanded" data-target="accordion-expand-content-6">
+                                        <img src="img/full-orange.png">
+                                        <p><span class="ip-range">10.30.1.*</span>Client Asset, 1 Server Asset</p>
+                                    </div>
+
+                                    <div class="accordion-item-content" data-expand="accordion-expand-content-6">
+                                        <div class="accordion-item-resource">
+                                            <p>
+                                                <span>IP Address</span>
+                                                255.255.255.255
+                                            </p>
+
+                                            <p>
+                                                <span>Date and time</span>
+                                                01/31/2021 21:42
+                                            </p>
+
+                                            <p>
+                                                <span>Asset type</span>
+                                                Client
+                                            </p>
+
+                                            <p>
+                                                <span>Asset name</span>
+                                                win10-u
+                                            </p>
+
+                                            <p>
+                                                <span>OS</span>
+                                                Windows 10 Ente..
+                                            </p>
+
+                                            <p>
+                                                <span>Management</span>
+                                                Managed
+                                            </p>
+
+                                            <p>
+                                                <span>TCP open ports</span>
+                                                135, 139, 445 ...
+                                            </p>
+
+                                            <p>
+                                                <span>UDP open ports</span>
+                                                53, 67, 68, 69 ...
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+<!--                        <div class="accordion-item">-->
+<!--                            <img src="img/half.png">-->
+<!--                            <p><span class="ip-range">Mixed IP Rangers</span>Client Asset, 1 Server Asset</p>-->
+<!--                        </div>-->
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="content-item" id="tabs-content-2">
+                <p>Ubuntu</p>
+                <p>Arch</p>
+                <p>Parrot OS</p>
+                <p>Kali Linux</p>
+            </div>
+
+            <div class="content-item" id="tabs-content-3">
+                <p>80 / http</p>
+                <p>21 / ftp</p>
+                <p>22 / ssh</p>
+                <p>465 / smtp</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+<script src="js/custom_chart.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/accordion.js"></script>
+
 </body>
 </html>
