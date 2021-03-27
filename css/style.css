@@ -147,7 +147,7 @@ body {
 
 .progress-wrapper {
     display: flex;
-    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .progress-bar .progress-blue {
@@ -172,7 +172,7 @@ body {
 
 .ellipse-wrapper {
     display: inline-flex;
-    margin-top: 20px;
+   	margin-top: 3px;
 }
 
 .ellipse-wrapper .ellipse {
