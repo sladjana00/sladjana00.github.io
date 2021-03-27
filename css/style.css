@@ -271,3 +271,26 @@ body {
 	border-radius: 90px;
 	color: #fff;
 }
+
+.all-content .accordions {
+	background: #F7F9FF;
+	border-radius: 90px;
+	width: 1024px;
+	height: 56px;
+
+}
+
+.all-content .accordions p span.acc-span:before {
+	content: '';
+	display: inline-block;
+	width: 1px;
+	height: 12px;
+	margin: 0px 6px;
+	background-color: #DCDFE8;
+}
+
+ .all-content .accordions:before {
+	background-image: url('../img/vector1.png');
+	height: 5px; 
+	width: 10px;
+}
