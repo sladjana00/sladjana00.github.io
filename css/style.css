@@ -152,6 +152,7 @@ body {
 
 .progress-bar .progress-blue {
     background: #4F73FF;
+
 }
 
 .progress-bar .progress-orange {
@@ -168,17 +169,6 @@ body {
     margin-right: 9px;
     width: 76px;
 }
-
-.progress-bar .progress-blue-1 {
-    width: 60%;
-    background: #4F73FF;
-}
-
-.progress-bar .progress-orange-2 {
-    width: 45%;
-    background: #FAA467;
-}
-
 
 .ellipse-wrapper {
     display: inline-flex;
