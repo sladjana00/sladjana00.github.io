@@ -199,6 +199,8 @@ body {
     width: 16px;
     height: 16px;
     border-radius: 50%;
+    position: relative;
+    bottom: -1px;
 }
 
 .ellipse-blue {
