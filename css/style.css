@@ -340,7 +340,7 @@ body {
     padding: 8px 0 16px 0;
 }
 
-.accordion-item-content .accordion-item-resource p {
+.accordion-item-content .accordion-item-resource p .resource-value {
     color: #525666;
     font-size: 14px;
     position: initial;
