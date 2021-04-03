@@ -163,6 +163,11 @@ jQuery(document).ready(function () {
                 $populateRow.append("<p class='resource-tcp-ports'><span>TCP open ports</span></p>");
                 $populateRow.append("<p class='resource-udp-ports'><span>UDP open ports</span></p>");
 
+                /** NOTE!! **/
+                /////////////////////////////////////////////////////////////
+                // Date and time, Management, UDP ports are missing from JSON.
+                /////////////////////////////////////////////////////////////
+
                 // Here goes a loop for servers.
                 if(inInObj.servers) {
                     for (let l = 0; l < inInObj.servers.length; l++) {
