@@ -112,6 +112,7 @@ jQuery(document).ready(function () {
     }
 
     myObj = myObj.content;
+
     // Counters for Labels (Mixed/Server/Client IPs and Assets)
     let countServers = 0;
     let countClients = 0;
@@ -119,18 +120,12 @@ jQuery(document).ready(function () {
     for(let i = 0; i < myObj.length; i++) {
         let obj = myObj[i];
 
-
-        // Creating main group.
-        // let $itemMainHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-1'>");
-        // let $itemMainContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-1'>");
-
-
         // Creating Layer X inside main group.
         let $itemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-2'>");
         let $itemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-2'>");
-        
-        let outsideServerCounter = 0;
-        let outsideClientCounter = 0;
+
+        let outServerCounter = 0;
+        let outClientCounter = 0;
 
         // Here goes a loop.
         for(let j = 0; j < obj.SonsLvl1.length; j++) {
@@ -140,7 +135,8 @@ jQuery(document).ready(function () {
             let $innerItemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-"+rndID+"'>");
             let $innerItemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-"+rndID+"'>");
 
-
+            let outsideServerCounter = 0;
+            let outsideClientCounter = 0;
 
             // Here goes a loop.
             for(let k = 0; k < inObj.sons_lev_2.length; k++) {
@@ -185,6 +181,7 @@ jQuery(document).ready(function () {
                         countServers++;
                         innerServerCounter++;
                         outsideServerCounter++;
+                        outServerCounter++;
                     }
                 }
 
@@ -206,6 +203,7 @@ jQuery(document).ready(function () {
                         countClients++;
                         innerClientCounter++;
                         outsideClientCounter++;
+                        outClientCounter++;
                     }
                 }
 
@@ -272,6 +270,9 @@ jQuery(document).ready(function () {
             $innerItemHeading.append($("<img src='" + hImg + "'>"));
             $innerItemHeading.append($("<p><span class='ip-range'>" + inObj.ip_lvl2 + "</span>" + hText + "</p>"));
 
+            outsideServerCounter = 0;
+            outsideClientCounter = 0;
+
             // Adding content to the Layer X.
             $itemContent.append($innerItemHeading);
             $itemContent.append($innerItemContent);
@@ -283,25 +284,25 @@ jQuery(document).ready(function () {
         // This part must be done here again.
         let hText = "";
         let hImg = "img/client.png"
-        if(outsideClientCounter > 0) {
-            hText += outsideClientCounter + " Client Asset"
+        if(outClientCounter > 0) {
+            hText += outClientCounter + " Client Asset"
 
-            if(outsideClientCounter > 1) {
+            if(outClientCounter > 1) {
                 hText += "s";
             }
         }
 
-        if(outsideServerCounter > 0) {
-            if(outsideClientCounter > 0) {
+        if(outServerCounter > 0) {
+            if(outClientCounter > 0) {
                 hText += ", ";
                 hImg = "img/half.png";
             } else {
                 hImg = "img/server.png";
             }
 
-            hText += outsideServerCounter + " Server Asset"
+            hText += outServerCounter + " Server Asset"
 
-            if(outsideServerCounter > 1) {
+            if(outServerCounter > 1) {
                 hText += "s";
             }
         }
@@ -311,6 +312,8 @@ jQuery(document).ready(function () {
         $itemHeading.append($("<img src='" + hImg + "'>"));
         $itemHeading.append($("<p><span class='ip-range'>" + obj.ip_lvl1 + "</span>" + hText + "</p>"));
 
+        outClientCounter = 0;
+        outServerCounter = 0;
 
         // Appending main group to the markup.
         $("#accordionWrapper").append($itemHeading);
