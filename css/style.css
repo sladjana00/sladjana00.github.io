@@ -263,6 +263,10 @@ body {
     transition: 0.3s;
 }
 
+.accordion > .accordion-item-content {
+    padding-left: 16px;
+}
+
 .accordion .accordion-item {
     background: #F7F9FF;
     border-radius: 90px;

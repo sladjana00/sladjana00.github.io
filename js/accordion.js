@@ -10,7 +10,7 @@ jQuery(document).ready(function () {
         $(cID).slideDown();
     });
 
-    $(document).on("click", ".accordion-item-content .accordion-item", function (e) {
+    $(document).on("click", ".accordion-item-content .accordion-item, .accordion > .accordion-item", function (e) {
         e.preventDefault();
 
         let cID = $(this).attr('data-target');
@@ -112,24 +112,25 @@ jQuery(document).ready(function () {
     }
 
     myObj = myObj.content;
+    // Counters for Labels (Mixed/Server/Client IPs and Assets)
+    let countServers = 0;
+    let countClients = 0;
+
     for(let i = 0; i < myObj.length; i++) {
         let obj = myObj[i];
 
 
         // Creating main group.
-        let $itemMainHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-1'>");
-        let $itemMainContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-1'>");
+        // let $itemMainHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-1'>");
+        // let $itemMainContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-1'>");
 
 
         // Creating Layer X inside main group.
         let $itemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-2'>");
         let $itemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-2'>");
-
-
-        // Counters for Labels (Mixed/Server/Client IPs and Assets)
-        let countServers = 0;
-        let countClients = 0;
-
+        
+        let outsideServerCounter = 0;
+        let outsideClientCounter = 0;
 
         // Here goes a loop.
         for(let j = 0; j < obj.SonsLvl1.length; j++) {
@@ -139,8 +140,7 @@ jQuery(document).ready(function () {
             let $innerItemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-"+rndID+"'>");
             let $innerItemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-"+rndID+"'>");
 
-            let hText = "";
-            let hImg = "img/client.png";
+
 
             // Here goes a loop.
             for(let k = 0; k < inObj.sons_lev_2.length; k++) {
@@ -163,10 +163,9 @@ jQuery(document).ready(function () {
                 $populateRow.append("<p class='resource-tcp-ports'><span>TCP open ports</span></p>");
                 $populateRow.append("<p class='resource-udp-ports'><span>UDP open ports</span></p>");
 
-                /** NOTE!! **/
-                /////////////////////////////////////////////////////////////
-                // Date and time, Management, UDP ports are missing from JSON.
-                /////////////////////////////////////////////////////////////
+
+                let innerServerCounter = 0;
+                let innerClientCounter = 0;
 
                 // Here goes a loop for servers.
                 if(inInObj.servers) {
@@ -184,6 +183,8 @@ jQuery(document).ready(function () {
 
                         // Counting servers.
                         countServers++;
+                        innerServerCounter++;
+                        outsideServerCounter++;
                     }
                 }
 
@@ -203,29 +204,33 @@ jQuery(document).ready(function () {
 
                         // Counting Clients.
                         countClients++;
+                        innerClientCounter++;
+                        outsideClientCounter++;
                     }
                 }
 
+                let hText = "";
+                let hImg = "img/client.png";
 
-                if(countClients > 0) {
-                    hText += countClients + " Client Asset"
+                if(innerClientCounter > 0) {
+                    hText += innerClientCounter + " Client Asset"
 
-                    if(countClients > 1) {
+                    if(innerClientCounter > 1) {
                         hText += "s";
                     }
                 }
 
-                if(countServers > 0) {
-                    if(countClients > 0) {
+                if(innerServerCounter > 0) {
+                    if(innerClientCounter > 0) {
                         hText += ", ";
                         hImg = "img/half.png";
                     } else {
                         hImg = "img/server.png";
                     }
 
-                    hText += countServers + " Server Asset"
+                    hText += innerServerCounter + " Server Asset"
 
-                    if(countServers > 1) {
+                    if(innerServerCounter > 1) {
                         hText += "s";
                     }
                 }
@@ -238,48 +243,69 @@ jQuery(document).ready(function () {
             }
 
 
+            let hText = "";
+            let hImg = "img/client.png";
+
+            if(outsideClientCounter > 0) {
+                hText += outsideClientCounter + " Client Asset"
+
+                if(outsideClientCounter > 1) {
+                    hText += "s";
+                }
+            }
+
+            if(outsideServerCounter > 0) {
+                if(outsideClientCounter > 0) {
+                    hText += ", ";
+                    hImg = "img/half.png";
+                } else {
+                    hImg = "img/server.png";
+                }
+
+                hText += outsideServerCounter + " Server Asset"
+
+                if(outsideServerCounter > 1) {
+                    hText += "s";
+                }
+            }
+
             $innerItemHeading.append($("<img src='" + hImg + "'>"));
             $innerItemHeading.append($("<p><span class='ip-range'>" + inObj.ip_lvl2 + "</span>" + hText + "</p>"));
 
             // Adding content to the Layer X.
             $itemContent.append($innerItemHeading);
             $itemContent.append($innerItemContent);
+
+
         }
 
 
         // This part must be done here again.
         let hText = "";
         let hImg = "img/client.png"
-        let hMainText = "Client IP Ranges";
-        if(countClients > 0) {
-            hText += countClients + " Client Asset"
+        if(outsideClientCounter > 0) {
+            hText += outsideClientCounter + " Client Asset"
 
-            if(countClients > 1) {
+            if(outsideClientCounter > 1) {
                 hText += "s";
             }
         }
 
-        if(countServers > 0) {
-            if(countClients > 0) {
+        if(outsideServerCounter > 0) {
+            if(outsideClientCounter > 0) {
                 hText += ", ";
                 hImg = "img/half.png";
-                hMainText = "Mixed IP Ranges";
             } else {
                 hImg = "img/server.png";
-                hMainText = "Server IP Ranges";
             }
 
-            hText += countServers + " Server Asset"
+            hText += outsideServerCounter + " Server Asset"
 
-            if(countServers > 1) {
+            if(outsideServerCounter > 1) {
                 hText += "s";
             }
         }
 
-
-        // Adding content to the main group.
-        $itemMainHeading.append($("<img src='" + hImg + "'>"));
-        $itemMainHeading.append($("<p><span class='ip-range'>" + hMainText + "</span>" + hText + "</p>"));
 
         // Adding content to the Layer X heading.
         $itemHeading.append($("<img src='" + hImg + "'>"));
@@ -287,14 +313,49 @@ jQuery(document).ready(function () {
 
 
         // Appending main group to the markup.
-        $("#accordionWrapper").append($itemMainHeading);
-        $("#accordionWrapper").append($itemMainContent);
+        $("#accordionWrapper").append($itemHeading);
+        $("#accordionWrapper").append($itemContent);
 
-        // Appending Layer X to the main group.
-        $itemMainContent.append($itemHeading);
-        $itemMainContent.append($itemContent);
 
     }
+
+
+
+    // This part must be done here again.
+    let hText = "";
+    let hImg = "img/client.png"
+    let mainText = "Client IP Ranges";
+    if(countClients > 0) {
+        hText += countClients + " Client Asset"
+
+        if(countClients > 1) {
+            hText += "s";
+        }
+    }
+
+    if(countServers > 0) {
+        if(countClients > 0) {
+            hText += ", ";
+            hImg = "img/half.png";
+            mainText = "Mixed IP Ranges";
+        } else {
+            hImg = "img/server.png";
+            mainText = "Server IP Ranges";
+        }
+
+        hText += countServers + " Server Asset"
+
+        if(countServers > 1) {
+            hText += "s";
+        }
+    }
+
+    $("#main-parent").append($("<img src='" + hImg + "'>"));
+    $("#main-parent").append($("<p><span class='ip-range'>" + mainText + "</span>" + hText + "</p>"));
+
+
+
+
 
     // Generating random number for markup IDs.
     function randomNumber() {

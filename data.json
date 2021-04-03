@@ -1,0 +1,15 @@
+[
+	{
+		"IP_LEV1":"10.*.*.*",
+		"IP_LEV2":"10.30.*.*",
+		"IP_LEV3":"10.30.1.*",
+		"fqdn":"JIM-PC.dmpc.com",
+		"hostname":"jim-pc.dmpc.com",
+		"type":"Client",
+		"ip":"10.30.1.12",
+		"computername":"JIM-PC",
+		"operatingsystem":"Windows 10 Enterprise Evaluation",
+		"distinguishedname":"CN=JIM-PC,CN=Computers,DC=dmpc,DC=com",
+		"tcpports":""
+	}
+]
