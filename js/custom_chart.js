@@ -2,7 +2,7 @@ anychart.onDocumentReady(function() {
 
     // set the data
     let data = [
-        {x: "Accessible", value: 85, fill: "#4F73FF"},
+        {x: "Accessible", value: 85, fill: "#FF6B5F"},
         {x: "Inaccessible", value: 15, fill: "#DCDFE8"},
     ];
 

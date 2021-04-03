@@ -20,98 +20,288 @@ jQuery(document).ready(function () {
         $("[data-expand='"+ cID +"']").slideToggle();
     });
 
+
+
+    // Populate this object with JSON data.
     let myObj = {
-        "data": [
+        "content": [
             {
-                "IP_LEV1": "10.*.*.*",
-                "IP_LEV2": "10.30.*.*",
-                "IP_LEV3": "10.30.1.*",
-                "fqdn": "JIM-PC.dmpc.com\r\n",
-                "hostname": "jim-pc.dmpc.com",
-                "type": "Client",
-                "ip": "10.30.1.12",
-                "computername": "JIM-PC",
-                "operatingsystem": "Windows 10 Enterprise Evaluation",
-                "distinguishedname": "CN=JIM-PC,CN=Computers,DC=dmpc,DC=com",
-                "tcpports": ""
+                "ip_lvl1": "10.*.*.*",
+                "SonsLvl1": [
+                    {
+                        "ip_lvl2": "10.10.*.*",
+                        "sons_lev_2": [
+                            {
+                                "ip_lvl3": "10.10.1.*",
+                                "clients": null,
+                                "servers": [
+                                    {
+                                        "fqdn": "WIN-AD.dmpc.com\r\n",
+                                        "hostname": "win-ad.dmpc.com",
+                                        "type": "Server",
+                                        "ip": "10.10.1.2",
+                                        "computername": "WIN-AD",
+                                        "operatingsystem": "Windows Server 2019 Essentials",
+                                        "distinguishedname": "CN=WIN-AD,OU=Domain Controllers,DC=dmpc,DC=com",
+                                        "tcpports": "389 139 135 88 53 3389 445 5357"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "ip_lvl2": "10.30.*.*",
+                        "sons_lev_2": [
+                            {
+                                "ip_lvl3": "10.30.1.*",
+                                "clients": [
+                                    {
+                                        "fqdn": "JIM-PC.dmpc.com\r\n",
+                                        "hostname": "jim-pc.dmpc.com",
+                                        "type": "Client",
+                                        "ip": "10.30.1.12",
+                                        "computername": "JIM-PC",
+                                        "operatingsystem": "Windows 10 Enterprise Evaluation",
+                                        "distinguishedname": "CN=JIM-PC,CN=Computers,DC=dmpc,DC=com",
+                                        "tcpports": ""
+                                    },
+                                    {
+                                        "fqdn": "MIKE-PC.dmpc.com\r\n",
+                                        "hostname": "mike-pc.dmpc.com",
+                                        "type": "Client",
+                                        "ip": "10.30.1.11",
+                                        "computername": "MIKE-PC",
+                                        "operatingsystem": "Windows 10 Enterprise Evaluation",
+                                        "distinguishedname": "CN=MIKE-PC,CN=Computers,DC=dmpc,DC=com",
+                                        "tcpports": ""
+                                    }
+                                ],
+                                "servers": null
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "IP_LEV1": "10.*.*.*",
-                "IP_LEV2": "10.30.*.*",
-                "IP_LEV3": "10.30.1.*",
-                "fqdn": "MIKE-PC.dmpc.com\r\n",
-                "hostname": "mike-pc.dmpc.com",
-                "type": "Client",
-                "ip": "10.30.1.11",
-                "computername": "MIKE-PC",
-                "operatingsystem": "Windows 10 Enterprise Evaluation",
-                "distinguishedname": "CN=MIKE-PC,CN=Computers,DC=dmpc,DC=com",
-                "tcpports": ""
-            },
-            {
-                "IP_LEV1": "fe80:*:*:*",
-                "IP_LEV2": "fe80::*:*",
-                "IP_LEV3": "fe80::e5dc:*",
-                "fqdn": "pam-pc.dmpc.com\r\n",
-                "hostname": "pam-pc.dmpc.com",
-                "type": "Client",
-                "ip": "fe80::e5dc:312f:5295:74db",
-                "computername": "PAM-PC",
-                "operatingsystem": "Windows 10 Enterprise Evaluation",
-                "distinguishedname": "CN=PAM-PC,CN=Computers,DC=dmpc,DC=com",
-                "tcpports": "8081 135 445 3389 139"
+                "ip_lvl1": "fe80:*:*:*",
+                "SonsLvl1": [
+                    {
+                        "ip_lvl2": "fe80:e5dc:*:*",
+                        "sons_lev_2": [
+                            {
+                                "ip_lvl3": "fe80:e5dc:312f:*",
+                                "clients": [
+                                    {
+                                        "fqdn": "pam-pc.dmpc.com\r\n",
+                                        "hostname": "pam-pc.dmpc.com",
+                                        "type": "Client",
+                                        "ip": "fe80::e5dc:312f:5295",
+                                        "computername": "PAM-PC",
+                                        "operatingsystem": "Windows 10 Enterprise Evaluation",
+                                        "distinguishedname": "CN=PAM-PC,CN=Computers,DC=dmpc,DC=com",
+                                        "tcpports": "445 135 8081 3389 139"
+                                    }
+                                ],
+                                "servers": null
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
 
-    myObj = myObj.data;
-    let itemContentHTML = "";
-
+    myObj = myObj.content;
     for(let i = 0; i < myObj.length; i++) {
-
-        let acc = i+1;
-
-        if(i == 0) {
-            itemContentHTML = $('div[data-expand="accordion-expand-content1-1"]')[0].outerHTML;
-        } else {
-            let itemTitle = ' <div class="accordion-item" data-target="accordion-expand-content'+acc+'-1">' +
-                '                            <img src="img/half.png">' +
-                '                            <p><span class="ip-range">Mixed IP Rangers</span>Client Asset, 1 Server Asset</p>' +
-                '                        </div>'
-
-            itemContentHTML = $('div[data-expand="accordion-expand-content1-1"]')[0].outerHTML;
+        let obj = myObj[i];
 
 
-            itemContentHTML = replaceAll(itemContentHTML, "accordion-expand-content1-1", "accordion-expand-content"+acc+"-1");
-            itemContentHTML = replaceAll(itemContentHTML, "accordion-expand-content1-2", "accordion-expand-content"+acc+"-2");
-            itemContentHTML = replaceAll(itemContentHTML, "accordion-expand-content1-3", "accordion-expand-content"+acc+"-3");
-            itemContentHTML = replaceAll(itemContentHTML, "accordion-expand-content1-4", "accordion-expand-content"+acc+"-4");
-            itemContentHTML = replaceAll(itemContentHTML, "accordion-expand-content1-5", "accordion-expand-content"+acc+"-5");
+        // Creating main group.
+        let $itemMainHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-1'>");
+        let $itemMainContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-1'>");
 
 
-            $("#accordionWrapper").append(itemTitle + itemContentHTML);
+        // Creating Layer X inside main group.
+        let $itemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-2'>");
+        let $itemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-2'>");
+
+
+        // Counters for Labels (Mixed/Server/Client IPs and Assets)
+        let countServers = 0;
+        let countClients = 0;
+
+
+        // Here goes a loop.
+        for(let j = 0; j < obj.SonsLvl1.length; j++) {
+            let inObj = obj.SonsLvl1[j];
+            let rndID = randomNumber();
+
+            let $innerItemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-"+rndID+"'>");
+            let $innerItemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-"+rndID+"'>");
+
+            let hText = "";
+            let hImg = "img/client.png";
+
+            // Here goes a loop.
+            for(let k = 0; k < inObj.sons_lev_2.length; k++) {
+                let inInObj = inObj.sons_lev_2[k];
+                let rndID = randomNumber();
+
+                let $innerInnerItemHeading = $("<div class='accordion-item' data-target='accordion-expand-content"+i+"-"+rndID+"'>");
+                let $innerInnerItemContent = $("<div class='accordion-item-content' data-expand='accordion-expand-content"+i+"-"+rndID+"'>");
+
+
+                $innerInnerItemContent.append("<div class='accordion-item-resource'>");
+                let $populateRow = $innerInnerItemContent.find(".accordion-item-resource");
+
+                $populateRow.append("<p class='resource-ip'><span>IP Address</span></p>");
+                $populateRow.append("<p class='resource-date-time'><span>Date and time</span></p>");
+                $populateRow.append("<p class='resource-type'><span>Asset type</span></p>");
+                $populateRow.append("<p class='resource-name'><span>Asset name</span></p>");
+                $populateRow.append("<p class='resource-os'><span>OS</span></p>");
+                $populateRow.append("<p class='resource-management'><span>Management</span></p>");
+                $populateRow.append("<p class='resource-tcp-ports'><span>TCP open ports</span></p>");
+                $populateRow.append("<p class='resource-udp-ports'><span>UDP open ports</span></p>");
+
+                // Here goes a loop for servers.
+                if(inInObj.servers) {
+                    for (let l = 0; l < inInObj.servers.length; l++) {
+                        let csObj = inInObj.servers[l];
+
+                        $populateRow.find(".resource-ip").append("<span class='resource-value'>" + csObj.ip + "</span>");
+                        $populateRow.find(".resource-date-time").append("<span class='resource-value'>01/31/2021 21:42</span>");
+                        $populateRow.find(".resource-type").append("<span class='resource-value'>Server</span>");
+                        $populateRow.find(".resource-name").append("<span class='resource-value'>" + obradi(csObj.computername) + "</span>");
+                        $populateRow.find(".resource-os").append("<span class='resource-value'>" + obradi(csObj.operatingsystem) + "</span>");
+                        $populateRow.find(".resource-management").append("<span class='resource-value'>Managed</span>");
+                        $populateRow.find(".resource-tcp-ports").append("<span class='resource-value'>" + obradi(csObj.tcpports) + "</span>");
+                        $populateRow.find(".resource-udp-ports").append("<span class='resource-value'>N/A</span>");
+
+                        // Counting servers.
+                        countServers++;
+                    }
+                }
+
+                // Here goes a loop for clients.
+                if(inInObj.clients) {
+                    for (let l = 0; l < inInObj.clients.length; l++) {
+                        let csObj = inInObj.clients[l];
+
+                        $populateRow.find(".resource-ip").append("<span class='resource-value'>" + csObj.ip + "</span>");
+                        $populateRow.find(".resource-date-time").append("<span class='resource-value'>01/31/2021 21:42</span>");
+                        $populateRow.find(".resource-type").append("<span class='resource-value'>Client</span>");
+                        $populateRow.find(".resource-name").append("<span class='resource-value'>" + obradi(csObj.computername) + "</span>");
+                        $populateRow.find(".resource-os").append("<span class='resource-value'>" + obradi(csObj.operatingsystem) + "</span>");
+                        $populateRow.find(".resource-management").append("<span class='resource-value'>Managed</span>");
+                        $populateRow.find(".resource-tcp-ports").append("<span class='resource-value'>" + obradi(csObj.tcpports) + "</span>");
+                        $populateRow.find(".resource-udp-ports").append("<span class='resource-value'>N/A</span>");
+
+                        // Counting Clients.
+                        countClients++;
+                    }
+                }
+
+
+                if(countClients > 0) {
+                    hText += countClients + " Client Asset"
+
+                    if(countClients > 1) {
+                        hText += "s";
+                    }
+                }
+
+                if(countServers > 0) {
+                    if(countClients > 0) {
+                        hText += ", ";
+                        hImg = "img/half.png";
+                    } else {
+                        hImg = "img/server.png";
+                    }
+
+                    hText += countServers + " Server Asset"
+
+                    if(countServers > 1) {
+                        hText += "s";
+                    }
+                }
+
+                $innerInnerItemHeading.append($("<img src='" + hImg + "'>"));
+                $innerInnerItemHeading.append($("<p><span class='ip-range'>" + inInObj.ip_lvl3 + "</span>" + hText + "</p>"));
+
+                $innerItemContent.append($innerInnerItemHeading);
+                $innerItemContent.append($innerInnerItemContent);
+            }
+
+
+            $innerItemHeading.append($("<img src='" + hImg + "'>"));
+            $innerItemHeading.append($("<p><span class='ip-range'>" + inObj.ip_lvl2 + "</span>" + hText + "</p>"));
+
+            // Adding content to the Layer X.
+            $itemContent.append($innerItemHeading);
+            $itemContent.append($innerItemContent);
         }
 
 
-        // ITEM IPs
-        $('div[data-target="accordion-expand-content'+acc+'-2"] .ip-range').text(myObj[i].IP_LEV1);
-        $('div[data-target="accordion-expand-content'+acc+'-3"] .ip-range').text(myObj[i].IP_LEV2);
-        $('div[data-target="accordion-expand-content'+acc+'-4"] .ip-range').text(myObj[i].IP_LEV3);
+        // This part must be done here again.
+        let hText = "";
+        let hImg = "img/client.png"
+        let hMainText = "Client IP Ranges";
+        if(countClients > 0) {
+            hText += countClients + " Client Asset"
 
-        // ITEM data
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-ip').text(myObj[i].ip);
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-date-time').text("01/31/2021 21:42");
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-type').text(myObj[i].type);
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-name').text(myObj[i].computername);
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-os').text(myObj[i].operatingsystem);
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-management').text("Managed");
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-tcp-ports').text(myObj[i].tcpports);
-        $('div[data-expand="accordion-expand-content'+acc+'-4"] .accordion-item-resource .resource-udp-ports').text("udp ports");
+            if(countClients > 1) {
+                hText += "s";
+            }
+        }
+
+        if(countServers > 0) {
+            if(countClients > 0) {
+                hText += ", ";
+                hImg = "img/half.png";
+                hMainText = "Mixed IP Ranges";
+            } else {
+                hImg = "img/server.png";
+                hMainText = "Server IP Ranges";
+            }
+
+            hText += countServers + " Server Asset"
+
+            if(countServers > 1) {
+                hText += "s";
+            }
+        }
+
+
+        // Adding content to the main group.
+        $itemMainHeading.append($("<img src='" + hImg + "'>"));
+        $itemMainHeading.append($("<p><span class='ip-range'>" + hMainText + "</span>" + hText + "</p>"));
+
+        // Adding content to the Layer X heading.
+        $itemHeading.append($("<img src='" + hImg + "'>"));
+        $itemHeading.append($("<p><span class='ip-range'>" + obj.ip_lvl1 + "</span>" + hText + "</p>"));
+
+
+        // Appending main group to the markup.
+        $("#accordionWrapper").append($itemMainHeading);
+        $("#accordionWrapper").append($itemMainContent);
+
+        // Appending Layer X to the main group.
+        $itemMainContent.append($itemHeading);
+        $itemMainContent.append($itemContent);
 
     }
 
+    // Generating random number for markup IDs.
+    function randomNumber() {
+        return Math.floor(Math.random() * 99999) + 11111;
+    }
 
-    function replaceAll(string, search, replace) {
-        return string.split(search).join(replace);
+    // If string too long, cut it and add ...
+    function obradi(str) {
+        if(str.length > 16) {
+            str = str.substring(0,14) + "...";
+        }
+
+        return str;
     }
 });
