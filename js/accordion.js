@@ -157,7 +157,7 @@ jQuery(document).ready(function () {
                 $populateRow.append("<p class='resource-os'><span>OS</span></p>");
                 $populateRow.append("<p class='resource-management'><span>Management</span></p>");
                 $populateRow.append("<p class='resource-tcp-ports'><span>TCP open ports</span></p>");
-                $populateRow.append("<p class='resource-udp-ports'><span>UDP open ports</span></p>");
+                // $populateRow.append("<p class='resource-udp-ports'><span>UDP open ports</span></p>");
 
 
                 let innerServerCounter = 0;
@@ -170,12 +170,12 @@ jQuery(document).ready(function () {
 
                         $populateRow.find(".resource-ip").append("<span class='resource-value'>" + csObj.ip + "</span>");
                         $populateRow.find(".resource-date-time").append("<span class='resource-value'>01/31/2021 21:42</span>");
-                        $populateRow.find(".resource-type").append("<span class='resource-value'>Server</span>");
-                        $populateRow.find(".resource-name").append("<span class='resource-value'>" + obradi(csObj.computername) + "</span>");
-                        $populateRow.find(".resource-os").append("<span class='resource-value'>" + obradi(csObj.operatingsystem) + "</span>");
+                        $populateRow.find(".resource-type").append("<span class='resource-value'>Client</span>");
+                        $populateRow.find(".resource-name").append("<span class='resource-value' data-tooltip='" + csObj.computername + "'>" + obradi(csObj.computername) + "</span>");
+                        $populateRow.find(".resource-os").append("<span class='resource-value' data-tooltip='" + csObj.operatingsystem + "'>" + obradi(csObj.operatingsystem) + "</span>");
                         $populateRow.find(".resource-management").append("<span class='resource-value'>Managed</span>");
-                        $populateRow.find(".resource-tcp-ports").append("<span class='resource-value'>" + obradi(csObj.tcpports) + "</span>");
-                        $populateRow.find(".resource-udp-ports").append("<span class='resource-value'>N/A</span>");
+                        $populateRow.find(".resource-tcp-ports").append("<span class='resource-value' data-tooltip='" + csObj.tcpports + "'>" + obradi(csObj.tcpports) + "</span>");
+                        // $populateRow.find(".resource-udp-ports").append("<span class='resource-value'>N/A</span>");
 
                         // Counting servers.
                         countServers++;
@@ -193,11 +193,11 @@ jQuery(document).ready(function () {
                         $populateRow.find(".resource-ip").append("<span class='resource-value'>" + csObj.ip + "</span>");
                         $populateRow.find(".resource-date-time").append("<span class='resource-value'>01/31/2021 21:42</span>");
                         $populateRow.find(".resource-type").append("<span class='resource-value'>Client</span>");
-                        $populateRow.find(".resource-name").append("<span class='resource-value'>" + obradi(csObj.computername) + "</span>");
-                        $populateRow.find(".resource-os").append("<span class='resource-value'>" + obradi(csObj.operatingsystem) + "</span>");
+                        $populateRow.find(".resource-name").append("<span class='resource-value' data-tooltip='" + csObj.computername + "'>" + obradi(csObj.computername) + "</span>");
+                        $populateRow.find(".resource-os").append("<span class='resource-value' data-tooltip='" + csObj.operatingsystem + "'>" + obradi(csObj.operatingsystem) + "</span>");
                         $populateRow.find(".resource-management").append("<span class='resource-value'>Managed</span>");
-                        $populateRow.find(".resource-tcp-ports").append("<span class='resource-value'>" + obradi(csObj.tcpports) + "</span>");
-                        $populateRow.find(".resource-udp-ports").append("<span class='resource-value'>N/A</span>");
+                        $populateRow.find(".resource-tcp-ports").append("<span class='resource-value' data-tooltip='" + csObj.tcpports + "'>" + obradi(csObj.tcpports) + "</span>");
+                        // $populateRow.find(".resource-udp-ports").append("<span class='resource-value'>N/A</span>");
 
                         // Counting Clients.
                         countClients++;
@@ -359,6 +359,16 @@ jQuery(document).ready(function () {
 
 
 
+    // Tool-tip
+    $("span[data-tooltip]").hover(
+        function() {
+            if($(this).attr('data-tooltip').length > 25) {
+                $(this).append("<div class='tooltip'>" + $(this).attr('data-tooltip') + "</div>");
+            }
+        }, function() {
+            $(this).find(".tooltip").remove();
+        }
+    );
 
     // Generating random number for markup IDs.
     function randomNumber() {
@@ -367,8 +377,8 @@ jQuery(document).ready(function () {
 
     // If string too long, cut it and add ...
     function obradi(str) {
-        if(str.length > 16) {
-            str = str.substring(0,14) + "...";
+        if(str.length > 25) {
+            str = str.substring(0,23) + "...";
         }
 
         return str;

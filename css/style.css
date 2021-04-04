@@ -347,8 +347,17 @@ body {
 .accordion-item-content .accordion-item-resource p .resource-value {
     color: #525666;
     font-size: 14px;
-    position: initial;
+    position: relative;
     top: 0;
+}
+
+.accordion-item-content .accordion-item-resource p .resource-value .tooltip {
+    position: absolute;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 10;
 }
 
 .accordion-item-content .accordion-item-resource p span {
