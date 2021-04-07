@@ -267,7 +267,7 @@ body {
     padding-left: 16px;
 }
 
-.accordion .accordion-item {
+.accordion .accordion-item, .modal-item-heading {
     background: #F7F9FF;
     border-radius: 90px;
     height: 56px;
@@ -276,7 +276,7 @@ body {
     cursor: pointer;
 }
 
-.accordion .accordion-item:before {
+.accordion .accordion-item:before, .modal-item-heading:before {
     content: '';
     display: inline-block;
     background-image: url('../img/arrow.png');
@@ -286,11 +286,11 @@ body {
     top: -6px;
 }
 
-.accordion .accordion-item img {
+.accordion .accordion-item img, .modal-item-heading img {
     margin-left: 23px;
 }
 
-.accordion .accordion-item p {
+.accordion .accordion-item p, .modal-item-heading p {
     margin-left: 12px;
     display: inline;
     position: relative;
@@ -324,34 +324,34 @@ body {
     display: block;
 }
 
-.accordion-item.expanded {
+.accordion-item.expanded, .modal-item-heading.expanded {
     display: block;
 }
 
-.accordion-item:before {
+.accordion-item:before, .modal-item-heading:before {
     transform: rotate(-90deg);
     transition: 0.3s;
 }
 
-.accordion-item.active:before {
+.accordion-item.active:before, .modal-item-heading.active:before {
     transform: rotate(0deg);
     transition: 0.3s;
 }
 
-.accordion-item-content .accordion-item-resource {
+.accordion-item-content .accordion-item-resource, .modal-inner-content {
     display: flex;
     justify-content: space-between;
     padding: 8px 0 16px 0;
 }
 
-.accordion-item-content .accordion-item-resource p .resource-value {
+.accordion-item-content .accordion-item-resource p .resource-value, .modal-inner-content p .resource-value {
     color: #525666;
     font-size: 14px;
     position: relative;
     top: 0;
 }
 
-.accordion-item-content .accordion-item-resource p .resource-value .tooltip {
+.accordion-item-content .accordion-item-resource p .resource-value .tooltip, .modal-inner-content p .resource-value .tooltip {
     position: absolute;
     padding: 5px;
     background-color: #fff;
@@ -360,7 +360,7 @@ body {
     z-index: 10;
 }
 
-.accordion-item-content .accordion-item-resource p span {
+.accordion-item-content .accordion-item-resource p span, .modal-inner-content p span {
     color: #B7BBC7;
     font-size: 12px;
     display: block;
@@ -507,6 +507,90 @@ body {
     display: none;
 }
 
+.operating-systems-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.operating-systems-wrapper .os-item {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 4px;
+    background-color: #F7F9FF;
+    cursor: pointer;
+}
+
+.operating-systems-wrapper .os-item.os-item-windows {
+    background-image: url("../img/windows.png");
+}
+
+.operating-systems-wrapper .os-item.os-item-linux {
+    background-image: url("../img/linux.png");
+}
+
+.operating-systems-wrapper .os-item .os-name:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: #525666;
+    margin: 15px auto;
+}
+
+.operating-systems-wrapper .os-item .os-sc-count {
+    font-size: 14px;
+}
+
+.modal-item-wrapper .modal-item-content {
+    display: none;
+    padding: 0 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-modal {
+    display: none;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 40px 25px;
+    max-width: 1000px;
+    margin: auto;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 10%;
+    z-index: 100;
+}
+
+.custom-modal h3 {
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+.custom-modal .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #525666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
 footer ul {
     list-style: none;
     padding-top: 30px;
@@ -557,11 +641,11 @@ footer ul li a:hover {
         padding-left: 0;
     }
 
-    .accordion-item-content .accordion-item-resource {
+    .accordion-item-content .accordion-item-resource, .modal-inner-content {
         display: block;
     }
 
-    .accordion-item-content .accordion-item-resource p {
+    .accordion-item-content .accordion-item-resource p, .modal-inner-content p {
         display: inline-block;
         margin: 10px 15px 10px 0;
     }
@@ -678,7 +762,7 @@ footer ul li a:hover {
         margin-bottom: 5px;
     }
 
-    .accordion-item-content .accordion-item-resource p {
+    .accordion-item-content .accordion-item-resource p, .modal-inner-content p {
         width: 40%;
     }
 
@@ -686,16 +770,16 @@ footer ul li a:hover {
         padding-left: 10px;
     }
 
-    .accordion .accordion-item img {
+    .accordion .accordion-item img, .modal-item-heading img {
         margin-left: 5px;
     }
 
-    .accordion .accordion-item {
+    .accordion .accordion-item, .modal-item-heading {
         height: auto;
         padding-bottom: 10px;
     }
 
-    .accordion .accordion-item p {
+    .accordion .accordion-item p, .modal-item-heading p {
         margin-left: 5px;
     }
 
