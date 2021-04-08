@@ -12,6 +12,11 @@
 <div class="container">
     <img src="img/logo.png">
 
+    <div class="action-buttons-wrapper">
+        <a href="#" class="action-button share-report">Share Report</a>
+        <a href="#" class="action-button save-pdf">Save as PDF</a>
+    </div>
+
     <div class="panel first-panel-section">
         <div class="panel-title">
             <h2>Scan information</h2>
@@ -21,7 +26,7 @@
             <div class="columns column-with-separator">
                 <div class="scan-summary">
                     <img src="img/alert.png">
-					<p><a href="#">2</a> Assets could be accessed if <a href="#">win10-u.demo.airgap.in</a> is compromised by an attacker</p>
+                    <p><a href="#" id="assetsnbr">2</a> Assets could be accessed if <a href="#" id="fqdn">win10-u.demo.airgap.in</a> is compromised by an attacker</p>
                 </div>
             </div>
 
@@ -29,20 +34,19 @@
                 <div class="column-1">
                     <p>
                         <span>Date and time</span>
-                        01/31/20 21:42
+                        <span class="jscontent" id="datetime">10.30.1.11</span>
                     </p>
-
 
                     <p>
                         <span>Duration</span>
-                        00:00:05
+                        <span class="jscontent" id="duration">00:00:05</span>
                     </p>
                 </div>
 
                 <div class="column-2">
                     <p>
                         <span>Scanned by</span>
-                        Alice
+                        <span class="jscontent" id="username">Alice</span>
                     </p>
 
                     <p>
@@ -55,22 +59,122 @@
                 <div class="column-3">
                     <p>
                         <span>Scanned from</span>
-                        win10-u.demo.airgap.in<span class="ip-addr">10.30.1.11</span>
+                        <span class="jscontent" id="fqdn2">win10-u.demo.airgap.in</span><span class="ip-addr" id="ipaddr">10.30.1.11</span>
                     </p>
                 </div>
 
                 <div class="column-1">
                     <p>
                         <span>Network ranges details</span>
-                        <a href="#">Click to open</a>
+                        <a id="NetworkDetails" href="#">Click to open</a>
                     </p>
                 </div>
 
                 <div class="column-2">
                     <p>
                         <span>Assets details</span>
-                        <a href="#">Click to open</a>
+                        <a id="AssetsDetails" href="#">Click to open</a>
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panels-wrapper panel-50-50">
+        <div class="panel first-column">
+            <div class="panel-title">
+                <h2>Operating Systems</h2>
+            </div>
+
+            <div class="panel-body charts-panel">
+                <div class="pie-chart-wrapper">
+                    <div class="pie-chart-inner">
+                        <div id="osPie" class="pie-chart pie-chart-fix"></div>
+<!--                        <div class="chart-border"></div>-->
+                    </div>
+                    <div class="pie-chart-info">
+                        <ul>
+                            <li class="color-blue">Windows 10 Enterprise Evaluation 45%</li>
+                            <li class="color-yellow">Ubuntu 16.04.7 LTS 20%</li>
+                            <li class="color-red">Windows Server 2019 Essentials 15%</li>
+                            <li class="color-purple">Red Hat Enterprise Linux 8 12%</li>
+                            <li class="color-light-blue">Other 8%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel second-column">
+            <div class="panel-title">
+                <h2>Open TCP ports</h2>
+
+                <ul class="panel-tabs-menu">
+                    <li class="active" data-panel-tab="#panelTab1">Servers</li>
+                    <li data-panel-tab="#panelTab2">Clients</li>
+                    <li data-panel-tab="#panelTab3">Unknown</li>
+                </ul>
+            </div>
+
+            <div class="panel-body charts-panel">
+                <div id="panelTab1" class="panel-tabs active">
+                    <div class="pie-chart-wrapper">
+                        <div class="pie-chart-inner pie-chart-width-fix">
+                            <div id="clientsPorts" class="pie-chart pie-chart-fix"></div>
+                            <!--                        <div class="chart-border"></div>-->
+                        </div>
+                        <div class="pie-chart-info">
+                            <h3>Most common on Clients</h3>
+                            <ul class="two-cols-list">
+                                <li class="color-blue">135 48%</li>
+                                <li class="color-yellow">139 16%</li>
+                                <li class="color-red">21 16%</li>
+                                <li class="color-light-blue">80 10%</li>
+                                <li class="color-purple">110 8%</li>
+                                <li class="color-green">Other 2%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panelTab2" class="panel-tabs">
+                    <div class="pie-chart-wrapper">
+                        <div class="pie-chart-inner pie-chart-width-fix">
+                            <div id="serversPorts" class="pie-chart pie-chart-fix"></div>
+                            <!--                        <div class="chart-border"></div>-->
+                        </div>
+                        <div class="pie-chart-info">
+                            <h3>Most common on Servers</h3>
+                            <ul class="two-cols-list">
+                                <li class="color-blue">135 48%</li>
+                                <li class="color-yellow">139 16%</li>
+                                <li class="color-red">21 16%</li>
+                                <li class="color-light-blue">80 10%</li>
+                                <li class="color-purple">110 8%</li>
+                                <li class="color-green">Other 2%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="panelTab3" class="panel-tabs">
+                    <div class="pie-chart-wrapper">
+                        <div class="pie-chart-inner pie-chart-width-fix">
+                            <div id="unknownPorts" class="pie-chart pie-chart-fix"></div>
+                            <!--                        <div class="chart-border"></div>-->
+                        </div>
+                        <div class="pie-chart-info">
+                            <h3>Most common on Unknown</h3>
+                            <ul class="two-cols-list">
+                                <li class="color-blue">135 48%</li>
+                                <li class="color-yellow">139 16%</li>
+                                <li class="color-red">21 16%</li>
+                                <li class="color-light-blue">80 10%</li>
+                                <li class="color-purple">110 8%</li>
+                                <li class="color-green">Other 2%</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,55 +182,6 @@
 
 
     <div class="panels-wrapper">
-        <div class="panel first-column">
-            <div class="panel-title">
-                <h2>Assets accessibility</h2>
-            </div>
-
-            <div class="panel-body charts-panel">
-                <div class="pie-chart-wrapper">
-					<div class="pie-chart-inner">
-						<div id="pieChart" class="pie-chart"></div>
-						<div class="chart-border"></div>
-					</div>
-					<div class="pie-chart-info">
-						<h3>Summary</h3>
-						<ul>
-							<li>Accessible 85%</li>
-							<li>Inaccessible 15%</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="vertical-bars-wrapper">
-					<div class="vertical-bar-item">
-						<div class="vertical-bar">
-							<span>50%</span>
-							<div class="vertical-bar-filled" style="height: 50%"></div>
-						</div>
-						<p>Clients</p>
-					</div>
-
-					<div class="vertical-bar-item">
-						<div class="vertical-bar">
-							<span>95%</span>
-							<div class="vertical-bar-filled" style="height: 95%"></div>
-						</div>
-						<p>Servers</p>
-					</div>
-
-					<div class="vertical-bar-item">
-						<div class="vertical-bar placeholder">
-							<span>95%</span>
-							<div class="vertical-bar-filled" style="height: 95%"></div>
-						</div>
-						<p class="disabled">Unknown</p>
-					</div>
-
-				</div>
-            </div>
-        </div>
-
         <div class="panel second-column">
             <div class="panel-title">
                 <h2>Most common open ports</h2>
@@ -134,28 +189,28 @@
 
             <div class="panel-body">
                 <div class="progress-wrapper">
-                    <p class="progress-p">135 TCP</p>
+                    <p class="progress-p" id="popular_port_1_name">135 TCP</p>
 
                     <div class="progress-bar">
-                        <div class="progress-blue" style="width: 45%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                        <div class="progress-orange" style="width: 35%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-blue" style="width: 45%" id="popular_port_1_clients"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-orange" style="width: 35%" id="popular_port_1_servers"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
                     </div>
                 </div>
 
                 <div class="progress-wrapper">
-                    <p class="progress-p">139 TCP</p>
+                    <p class="progress-p" id="popular_port_2_name">139 TCP</p>
                     <div class="progress-bar">
-                        <div class="progress-blue" style="width: 50%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                        <div class="progress-orange" style="width: 50%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-blue" style="width: 50%" id="popular_port_2_clients"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-orange" style="width: 50%" id="popular_port_2_servers"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
                     </div>
                 </div>
 
                 <div class="progress-wrapper">
-                    <p class="progress-p">49152 UDP</p>
+                    <p class="progress-p" id="popular_port_3_name">49152 UDP</p>
 
                     <div class="progress-bar">
-                        <div class="progress-blue" style="width: 50%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                        <div class="progress-orange" style="width: 40%"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-blue" style="width: 50%" id="popular_port_3_clients"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
+                        <div class="progress-orange" style="width: 40%" id="popular_port_3_servers"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
                     </div>
                 </div>
 
@@ -177,14 +232,63 @@
                 </div>
             </div>
         </div>
+
+        <div class="panel first-column">
+            <div class="panel-title">
+                <h2>Assets accessibility</h2>
+            </div>
+
+            <div class="panel-body charts-panel">
+                <div class="pie-chart-wrapper">
+                    <div class="pie-chart-inner">
+                        <div id="pieChart" class="pie-chart"></div>
+<!--                        <div class="chart-border"></div>-->
+                    </div>
+                    <div class="pie-chart-info">
+                        <h3>Summary</h3>
+                        <ul>
+                            <li id="acc_per">Accessible 85%</li>
+                            <li id="inacc_per">Inaccessible 15%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="vertical-bars-wrapper">
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar">
+                            <span id="clients_percentage_number">50%</span>
+                            <div class="vertical-bar-filled" style="height: 50%" id="clients_percentage_bar"></div>
+                        </div>
+                        <p id="clients_label">Clients</p>
+                    </div>
+
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar">
+                            <span id="servers_percentage_number">95%</span>
+                            <div class="vertical-bar-filled" style="height: 95%" id="servers_percentage_bar"></div>
+                        </div>
+                        <p id="servers_label">Servers</p>
+                    </div>
+
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar">
+                            <span id="unknown_percentage_number">95%</span>
+                            <div class="vertical-bar-filled" style="height: 95%" id="unknown_percentage_bar"></div>
+                        </div>
+                        <p id="unknown_label">Unknown</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <div class="additional-information">
         <div class="all-tabs">
             <a href="#" class="active" data-target="#tabs-content-1">IP Ranges Layout (1)</a>
-            <a href="#" data-target="#tabs-content-2">Operating Systems (2)</a>
-            <a href="#" data-target="#tabs-content-3">Opened Ports (150)</a>
+            <a href="#" data-target="#tabs-content-2" id="numberOfOS">Operating Systems (2)</a>
+            <a href="#" data-target="#tabs-content-3" id="numberOfPorts">Opened Ports (150)</a>
         </div>
 
         <div class="all-content">
@@ -218,12 +322,16 @@
 
             <!-- OPEN PORTS -->
             <div class="content-item" id="tabs-content-3">
-                <!-- POPULATED BY JS -->
+
+                <div id="openPorts" class="open-ports-wrapper">
+                    <!-- POPULATED BY JS -->
+                </div>
+
             </div>
             <!-- END OF OPEN PORTS -->
         </div>
     </div>
-    
+
     <footer>
         <ul>
             <li><a target="_blank" href="https://airgap.io/">How to reach us</a></li>
@@ -231,7 +339,24 @@
             <li><a target="_blank" href="https://airgap.io/terms-and-conditions/">Our Terms of Use</a></li>
             <li><a target="_blank" href="https://airgap.io/eula/">Our EULA</a></li>
         </ul>
+
+        <div class="contact-info">
+            <ul>
+                <li><a href="tel:+14154808075" target="_blank" rel="noopener noreferrer">+1 415 480 8075</a></li>
+                <li><a href="mailto:info@airgap.io" target="_blank" rel="noopener noreferrer">info@airgap.io</a></li>
+            </ul>
+        </div>
     </footer>
+</div>
+
+<div id="shareReportModal" class="share-report-modal">
+    <h3>Share Report</h3>
+    <a href="#" class="close-report-modal">Close</a>
+
+    <form action="" method="POST">
+        <input type="email" name="email" placeholder="Email...">
+        <button type="submit" class="action-button">Send</button>
+    </form>
 </div>
 
 <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
@@ -239,10 +364,14 @@
 <script src="js/custom_chart.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/populate.js"></script>
 <script src="js/custom_modal.js"></script>
+<script src="js/share_report.js"></script>
+<script src="js/panel_tabs.js"></script>
 
 <script src="js/accordion.js"></script>
 <script src="js/os.js"></script>
+<script src="js/ports.js"></script>
 
 </body>
 </html>

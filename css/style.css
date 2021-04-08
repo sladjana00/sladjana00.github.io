@@ -11,6 +11,90 @@ body {
     padding-bottom: 40px;
 }
 
+.action-buttons-wrapper {
+    float: right;
+}
+
+.action-button {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    padding: 14px 16px;
+    display: inline-block;
+    background-color: #4F73FF;
+    box-shadow: 0 8px 24px rgba(79, 115, 255, 0.08), 0 2px 4px rgba(79, 115, 255, 0.2);
+    border-radius: 90px;
+    color: #fff;
+    padding-left: 45px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    transition: 0.3s;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.action-button.share-report {
+    background-image: url("../img/share.png");
+    margin-right: 20px;
+}
+
+.action-button.save-pdf {
+    background-image: url("../img/document.png");
+}
+
+.share-report-modal {
+    display: none;
+    z-index: 100;
+    position: fixed;
+    top: 10%;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 40px 25px;
+    max-width: 450px;
+    margin: auto;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.share-report-modal h3 {
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+.share-report-modal .close-report-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #525666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.share-report-modal form {
+    display: flex;
+}
+
+.share-report-modal form input, .share-report-modal form button {
+    border-radius: 0;
+    border: 0;
+    padding: 10px 25px;
+}
+
+.share-report-modal form input {
+    width: 80%;
+    border: 1px solid #4F73FF;
+}
+
+.share-report-modal form button {
+    width: 20%;
+}
+
 .container {
     max-width: 1087px;
     margin: 0 auto;
@@ -102,7 +186,7 @@ body {
 .panel .panel-body .columns .scan-summary p {
     margin-left: 40px;
     margin-bottom: 0;
-	color: #878A99;
+    color: #878A99;
 }
 
 .panel .panel-body .columns p a {
@@ -172,7 +256,7 @@ body {
 
 .ellipse-wrapper {
     display: inline-flex;
-   	margin-top: 3px;
+    margin-top: 3px;
 }
 
 .ellipse-wrapper .ellipse {
@@ -182,7 +266,7 @@ body {
 
 .ellipse-wrapper .ellipse p {
     margin-left: 5px;
-	color: #525666;
+    color: #525666;
 }
 
 .ellipse-item {
@@ -219,17 +303,127 @@ body {
 .panels-wrapper .panel.first-column {
     width: 66%;
     float: left;
-    margin-right: 3%;
 }
 
 .panels-wrapper .panel.second-column {
     width: 31%;
     float: left;
+    margin-right: 3%;
 }
 
 .panels-wrapper .panel.second-column .panel-body {
     display: block;
 }
+
+.panel-50-50.panels-wrapper .panel.first-column {
+    width: 48%;
+    margin-right: 4%;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-wrapper {
+    float: none;
+    width: 100%;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-wrapper:after {
+    display: none;
+}
+
+.panels-wrapper .panel .charts-panel .pie-chart-wrapper .pie-chart.pie-chart-fix {
+    width: 180px;
+    height: 202px;
+}
+
+.panels-wrapper .panel .charts-panel .pie-chart-wrapper .pie-chart.pie-chart-fix svg g g g:last-child {
+    display: none;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel {
+    padding-left: 18px;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-inner {
+    width: 39%;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-info ul li.color-blue:before {
+    background-color: #4F73FF;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-info ul li.color-yellow:before {
+    background-color: #FFC500;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-info ul li.color-red:before {
+    background-color: #F26344;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-info ul li.color-purple:before {
+    background-color: #6A6DE2;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-info ul li.color-light-blue:before {
+    background-color: #65D2FD;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-info ul li.color-green:before {
+    background-color: #00EEAD;
+}
+
+.panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-inner.pie-chart-width-fix {
+    width: 66%;
+    min-height: 165px;
+}
+
+.two-cols-list li {
+    display: inline-block;
+    width: 49%;
+}
+
+.panel-50-50.panels-wrapper .panel.second-column {
+    width: 48%;
+    margin-right: 0;
+}
+
+.panel-50-50.panels-wrapper .panel .panel-title {
+    display: flex;
+    padding: 22px 33px 10px 33px;
+    justify-content: space-between;
+}
+
+.panel-50-50.panels-wrapper .panel .panel-tabs {
+    display: none;
+}
+
+.panel-50-50.panels-wrapper .panel .panel-tabs.active {
+    display: block;
+}
+
+.panel-50-50.panels-wrapper .panel .panel-title ul li {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #B7BBC7;
+    position: relative;
+}
+
+.panel-50-50.panels-wrapper .panel .panel-title ul li.active {
+    color: #262B40;
+}
+
+.panel-50-50.panels-wrapper .panel .panel-title ul li.active:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: -22px;
+    background-color: #4F73FF;
+    height: 4px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 
 .additional-information {
     margin-top: 32px;
@@ -380,11 +574,11 @@ body {
 }
 
 .vertical-bar {
-	background-color: #DCDFE8;
-	overflow: hidden;
-	border-radius: 4px;
-	height: 100px;
-	width: 40px;
+    background-color: #DCDFE8;
+    overflow: hidden;
+    border-radius: 4px;
+    height: 100px;
+    width: 40px;
     position: relative;
     margin: 0 auto;
 }
@@ -394,22 +588,22 @@ body {
 }
 
 .vertical-bar .vertical-bar-filled {
-	background-color: #FF6B5F;
-	width: 100%;
-	height: 50%;
-	position: absolute;
-	bottom: 0;
+    background-color: #FF6B5F;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
 }
 
 .vertical-bar span {
-	z-index: 1;
-	position: absolute;
-	bottom: 17px;
-	text-align: center;
-	width: 100%;
-	font-size: 12px;
-	letter-spacing: 1px;
-	color: #fff;
+    z-index: 1;
+    position: absolute;
+    bottom: 17px;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #fff;
 }
 
 .vertical-bar-item {
@@ -418,13 +612,13 @@ body {
 }
 
 .vertical-bar-item p {
-	color: #525666;
-	font-size: 14px;
+    color: #525666;
+    font-size: 14px;
     margin-top: 16px;
 }
 
 .vertical-bar-item p.disabled {
-	color: #B7BBC7;
+    color: #B7BBC7;
 }
 
 .pie-chart-wrapper {
@@ -507,12 +701,16 @@ body {
     display: none;
 }
 
-.operating-systems-wrapper {
+.operating-systems-wrapper, .open-ports-wrapper {
     display: flex;
     justify-content: space-evenly;
 }
 
-.operating-systems-wrapper .os-item {
+.open-ports-wrapper {
+    flex-wrap: wrap;
+}
+
+.operating-systems-wrapper .os-item, .open-ports-wrapper .ops-item {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -523,6 +721,13 @@ body {
     cursor: pointer;
 }
 
+.open-ports-wrapper .ops-item {
+    padding: 20px;
+    border: 1px solid rgba(255, 107, 95, 0.5);
+    width: 20%;
+    margin: 15px;
+}
+
 .operating-systems-wrapper .os-item.os-item-windows {
     background-image: url("../img/windows.png");
 }
@@ -531,7 +736,7 @@ body {
     background-image: url("../img/linux.png");
 }
 
-.operating-systems-wrapper .os-item .os-name:after {
+.operating-systems-wrapper .os-item .os-name:after, .open-ports-wrapper .ops-item .ops-number:after {
     content: "";
     display: block;
     width: 20px;
@@ -540,7 +745,7 @@ body {
     margin: 15px auto;
 }
 
-.operating-systems-wrapper .os-item .os-sc-count {
+.operating-systems-wrapper .os-item .os-sc-count, .open-ports-wrapper .ops-item .os-sc-count {
     font-size: 14px;
 }
 
@@ -591,6 +796,11 @@ body {
     font-size: 14px;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
 footer ul {
     list-style: none;
     padding-top: 30px;
@@ -610,6 +820,10 @@ footer ul li a {
 
 footer ul li a:hover {
     text-decoration: underline;
+}
+
+footer .contact-info {
+
 }
 
 /***************
