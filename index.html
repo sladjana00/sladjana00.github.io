@@ -68,29 +68,6 @@
 
             <div class="main-col-wrapper-9">
                 <div class="row-wrapper">
-                    <div class="column-1">
-                        <p>
-                            <span>Duration</span>
-                            <span class="jscontent" id="duration">00:00:05</span>
-                        </p>
-                    </div>
-
-                    <div class="column-2">
-                        <p>
-                            <span>Scan mode</span>
-                            Managed - Quick
-                        </p>
-                    </div>
-                    <div class="column-3">
-                        <p>
-                            <span>Scanned from</span>
-                            <span class="jscontent" id="fqdn2">win10-u.demo.airgap.in</span><span class="ip-addr" id="ipaddr">10.30.1.11</span>
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="row-wrapper">
                     <div class="pie-chart-wrapper">
                         <div class="pie-chart-inner">
                             <div id="pieChart" class="pie-chart"></div>
@@ -214,58 +191,7 @@
 
 
     <div class="panels-wrapper">
-        <div class="panel second-column">
-            <div class="panel-title">
-                <h2>Most common open ports</h2>
-            </div>
-
-            <div class="panel-body">
-                <div class="progress-wrapper">
-                    <p class="progress-p" id="popular_port_1_name">135 TCP</p>
-
-                    <div class="progress-bar">
-                        <div class="progress-blue" style="width: 45%" id="popular_port_1_clients"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                        <div class="progress-orange" style="width: 35%" id="popular_port_1_servers"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                    </div>
-                </div>
-
-                <div class="progress-wrapper">
-                    <p class="progress-p" id="popular_port_2_name">139 TCP</p>
-                    <div class="progress-bar">
-                        <div class="progress-blue" style="width: 50%" id="popular_port_2_clients"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                        <div class="progress-orange" style="width: 50%" id="popular_port_2_servers"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                    </div>
-                </div>
-
-                <div class="progress-wrapper">
-                    <p class="progress-p" id="popular_port_3_name">49152 UDP</p>
-
-                    <div class="progress-bar">
-                        <div class="progress-blue" style="width: 50%" id="popular_port_3_clients"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                        <div class="progress-orange" style="width: 40%" id="popular_port_3_servers"></div> <!-- HERE YOU CHANGE PERCENTAGE PROGRAMMATICALLY -->
-                    </div>
-                </div>
-
-                <div class="ellipse-wrapper">
-                    <div class="ellipse">
-                        <div class="ellipse-item ellipse-blue"></div>
-                        <p>Clients</p>
-                    </div>
-
-                    <div class="ellipse">
-                        <div class="ellipse-item ellipse-orange"></div>
-                        <p>Servers</p>
-                    </div>
-
-                    <div class="ellipse">
-                        <div class="ellipse-item ellipse-darkblue"></div>
-                        <p>Unknown</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel first-column">
+        <div class="panel">
             <div class="panel-title">
                 <h2>Vulnerabilities to Ransomware Attack</h2>
             </div>
@@ -273,8 +199,8 @@
             <div class="panel-body charts-panel">
                 <div class="histogram">
                     <div class="histogram-heading">
-                        <p>Name</p>
-                        <p>Amt. of Bytes</p>
+                        <p>Ports</p>
+                        <p>Ransomware</p>
                     </div>
                     <div class="histogram-body">
 
@@ -312,9 +238,9 @@
 
     <div class="additional-information">
         <div class="all-tabs">
-            <a href="#" class="active" data-target="#tabs-content-1">IP Ranges Layout (1)</a>
-            <a href="#" data-target="#tabs-content-2" id="numberOfOS">Operating Systems (2)</a>
-            <a href="#" data-target="#tabs-content-3" id="numberOfPorts">Opened Ports (150)</a>
+            <a href="#" class="active" data-target="#tabs-content-1">Assets (1)</a>
+            <!--<a href="#" data-target="#tabs-content-2" id="numberOfOS">Operating Systems (2)</a>
+            <a href="#" data-target="#tabs-content-3" id="numberOfPorts">Opened Ports (150)</a>-->
         </div>
 
         <div class="all-content">
