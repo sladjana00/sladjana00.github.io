@@ -1,0 +1,243 @@
+.accordion {
+  & > .accordion-item-content {
+    padding-left: 16px;
+
+    @media (max-width: 575px) {
+      padding-left: 10px;
+    }
+  }
+
+  .accordion-item {
+    background: $ghost-white;
+    border-radius: 90px;
+    height: 56px;
+    padding: 17px 23px;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      background-image: url('../img/arrow.png');
+      height: 5px;
+      width: 10px;
+      position: relative;
+      top: -6px;
+      transform: rotate(-90deg);
+      transition: 0.3s;
+    }
+
+    &.active:before {
+      transform: rotate(0deg);
+      transition: 0.3s;
+    }
+
+    &.expanded {
+      display: block;
+    }
+
+    img {
+      margin-left: 23px;
+    }
+
+    p {
+      margin-left: 12px;
+      display: inline;
+      position: relative;
+      top: -4px;
+      font-size: 14px;
+      color: $bright-grey;
+    }
+
+    &.accordion-item {
+      p span:after {
+        content: '';
+        background-color: $hawkes-blue;
+        width: 1px;
+        height: 12px;
+        display: inline-block;
+        margin: 0 6px;
+      }
+    }
+  }
+
+  .accordion-item-content {
+    display: none;
+
+    & > .accordion-item-content {
+      padding-left: 16px;
+    }
+
+    &.expanded {
+      display: block;
+    }
+
+    &:first-child {
+      display: block;
+    }
+
+    .accordion-item-resource {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0 16px 0;
+
+      @media (max-width: 991px) {
+        display: block;
+      }
+
+      p {
+        span {
+          color: $echo-blue;
+          font-size: 12px;
+          display: block;
+          margin-bottom: 4px;
+        }
+
+        .resource-value {
+          color: $bright-grey;
+          font-size: 14px;
+          position: relative;
+          top: 0;
+
+          .tooltip {
+            position: absolute;
+            padding: 5px;
+            background-color: $white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 10;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-inner-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0 16px 0;
+
+  @media (max-width: 991px) {
+    display: block;
+  }
+
+  p {
+    span {
+      color: $echo-blue;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .resource-value {
+      color: $bright-grey;
+      font-size: 14px;
+      position: relative;
+      top: 0;
+
+      .tooltip {
+        position: absolute;
+        padding: 5px;
+        background-color: $white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+        z-index: 10;
+      }
+    }
+  }
+}
+
+.modal-item-heading {
+  background: $ghost-white;
+  border-radius: 90px;
+  height: 56px;
+  padding: 17px 23px;
+  margin-bottom: 8px;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    background-image: url('../img/arrow.png');
+    height: 5px;
+    width: 10px;
+    position: relative;
+    top: -6px;
+    transform: rotate(-90deg);
+    transition: 0.3s;
+  }
+
+  &.active:before {
+    transform: rotate(0deg);
+    transition: 0.3s;
+  }
+
+  &.expanded {
+    display: block;
+  }
+
+  img {
+    margin-left: 23px;
+  }
+
+  p {
+    margin-left: 12px;
+    display: inline;
+    position: relative;
+    top: -4px;
+    font-size: 14px;
+    color: $bright-grey;
+  }
+
+  &.accordion-item {
+    p span:after {
+      content: '';
+      background-color: $hawkes-blue;
+      width: 1px;
+      height: 12px;
+      display: inline-block;
+      margin: 0 6px;
+    }
+  }
+}
+
+.all-content {
+  .content-item {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .accordion-item-content .accordion-item-resource, .modal-inner-content {
+    display: block;
+  }
+
+  .accordion-item-content .accordion-item-resource p, .modal-inner-content p {
+    display: inline-block;
+    margin: 10px 15px 10px 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .accordion-item-content .accordion-item-resource p, .modal-inner-content p {
+    width: 40%;
+  }
+
+  .accordion .accordion-item img, .modal-item-heading img {
+    margin-left: 5px;
+  }
+
+  .accordion .accordion-item, .modal-item-heading {
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .accordion .accordion-item p, .modal-item-heading p {
+    margin-left: 5px;
+  }
+}

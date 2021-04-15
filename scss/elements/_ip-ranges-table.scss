@@ -1,0 +1,152 @@
+.dataTables_wrapper {
+  margin-top: 35px;
+
+  .dataTables_info {
+    color: $manatee;
+    font-size: 14px;
+  }
+
+  .dataTables_paginate {
+    span a.paginate_button, a {
+      border: 0 !important;
+      background: transparent !important;
+      border-radius: 0;
+      padding: 5px;
+      transition: 0.3s;
+      font-size: 14px;
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:hover {
+        color: $bright-grey !important;
+        font-weight: 700;
+        border-bottom: 1px solid $manatee !important;
+        transition: 0.3s;
+      }
+
+      &.current {
+        font-weight: 700;
+        color: $bright-grey !important;
+        border-bottom: 1px solid $manatee !important;
+      }
+
+      &.next, &.disabled, &.previous {
+        padding: 10px;
+        font-size: 0;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        width: 8px;
+        height: 14px;
+        position: relative;
+        top: -4px;
+
+        &.next {
+          background-image: url(../img/enabled-arrow.png) !important;
+          transform: rotate(0deg);
+        }
+
+        &.previous {
+          transform: rotate(180deg);
+          background-image: url(../img/enabled-arrow.png) !important;
+        }
+
+        &.disabled.previous {
+          background-image: url(../img/disabled-arrow.png) !important;
+          transform: rotate(0deg);
+        }
+
+        &.disabled.next {
+          transform: rotate(180deg);
+          background-image: url(../img/disabled-arrow.png) !important;
+        }
+
+        &:hover {
+          padding: 10px;
+          font-size: 0;
+          background: transparent;
+          background-image: url(../img/enabled-arrow.png);
+          background-position: center;
+          background-repeat: no-repeat;
+          border: 0 !important;
+          width: 8px;
+          height: 14px;
+          position: relative;
+          top: -4px;
+        }
+      }
+    }
+  }
+
+  .dataTables_length {
+    label {
+      color: $manatee;
+      font-size: 14px;
+
+      select {
+        color: $bright-grey;
+        border: 0;
+      }
+    }
+  }
+
+  .dataTables_filter {
+    input {
+      width: 255px;
+      height: 38px;
+      font-size: 14px;
+      outline: none;
+      background-image: url("../img/search.png");
+      background-position: 92% center;
+      background-repeat: no-repeat;
+      padding-left: 14px;
+      border: 1px solid $hawkes-blue;
+
+      &::-webkit-input-placeholder { /* Edge */
+        color: $echo-blue;
+      }
+
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $echo-blue;
+      }
+
+      &::placeholder {
+        color: $echo-blue;
+      }
+    }
+  }
+}
+
+.ip-ranges-table {
+  border: 0 !important;
+  padding-top: 20px;
+
+  thead {
+    tr {
+      th {
+        text-align: left;
+        color: $bright-grey;
+        font-size: 14px;
+        font-weight: 500 !important;
+        padding-left: 10px !important;
+        border-bottom: 1px solid $solitude;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      height: 54px;
+
+      &.odd {
+        background-color: $alice-blue;
+      }
+
+      td {
+        color: $bright-grey;
+        font-size: 14px;
+      }
+    }
+  }
+}

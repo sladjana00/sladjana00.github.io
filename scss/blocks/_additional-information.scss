@@ -1,0 +1,119 @@
+.additional-information {
+  margin-top: 32px;
+  padding: 38px 32px 36px 32px;
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 17px 41px rgba(79, 115, 255, 0.08), 0 2.12866px 5.13384px rgba(79, 115, 255, 0.04);
+  min-height: 300px;
+
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
+
+  .all-tabs {
+    margin-bottom: 20px;
+
+    a {
+      text-decoration: none;
+      color: $midnight-express;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      padding: 14px 16px;
+      display: inline-block;
+      transition: 0.3s;
+
+      @media (max-width: 767px) {
+        padding: 8px 7px;
+        font-size: 14px;
+      }
+
+      @media (max-width: 575px) {
+        display: block;
+        text-align: center;
+        max-width: 250px;
+        margin: 0 auto;
+        margin-bottom: 5px;
+      }
+
+      &:hover, &.active {
+        background: $royal-blue;
+        box-shadow: 0 8px 24px rgba(79, 115, 255, 0.08), 0 2px 4px rgba(79, 115, 255, 0.2);
+        border-radius: 90px;
+        color: $white;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+
+.operating-systems-wrapper, .open-ports-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+
+  @media (max-width: 575px) {
+    display: block;
+  }
+
+  .os-item, .ops-item {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 4px;
+    background-color: $ghost-white;
+    cursor: pointer;
+
+    .os-sc-count, .os-sc-count {
+      font-size: 14px;
+    }
+
+    .os-name:after, .ops-number:after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 1px;
+      background-color: $bright-grey;
+      margin: 15px auto;
+    }
+  }
+
+  &.open-ports-wrapper {
+    flex-wrap: wrap;
+
+    .ops-item {
+      padding: 20px;
+      border: 1px solid rgba(255, 107, 95, 0.5);
+      width: 20%;
+      margin: 15px;
+    }
+  }
+
+  &.operating-systems-wrapper {
+    .os-item.os-item-windows {
+      background-image: url("../img/windows.png");
+    }
+
+    .os-item.os-item-linux {
+      background-image: url("../img/linux.png");
+    }
+
+    .os-item {
+      @media (max-width: 575px) {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .ops-item .ops-number {
+    word-break: break-all;
+  }
+}
+
+.modal-item-wrapper .modal-item-content {
+  display: none;
+  padding: 0 10px;
+}

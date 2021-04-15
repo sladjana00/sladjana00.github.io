@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -12,71 +13,126 @@
 <div class="container">
     <img src="img/logo.png">
 
-    <div class="action-buttons-wrapper">
-        <a href="#" class="action-button share-report">Share Report</a>
-        <a href="#" class="action-button save-pdf">Save as PDF</a>
+    <div class="header-right-side">
+        <div class="action-buttons-wrapper">
+            <a href="#" class="action-button share-report">Share Report</a>
+            <a href="#" class="action-button save-pdf">Save as PDF</a>
+        </div>
+
+        <div class="contact-info">
+            <ul>
+                <li><a href="tel:+14154808075" target="_blank" rel="noopener noreferrer">+1 415 480 8075</a></li>
+                <li><a href="mailto:info@airgap.io" target="_blank" rel="noopener noreferrer">info@airgap.io</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="panel first-panel-section">
         <div class="panel-title">
-            <h2>Scan information</h2>
+            <div class="heading-row-wrapper-2">
+                <h2>Scan information</h2>
+            </div>
+
+            <div class="heading-row-wrapper-10">
+                <p class="heading-col">
+                    <span>Date and time</span>
+                    <span class="jscontent" id="datetime">10.30.1.11</span>
+                </p>
+
+                <p class="heading-col">
+                    <span>Scanned by</span>
+                    <span class="jscontent" id="username">Alice</span>
+                </p>
+
+                <p class="heading-col">
+                    <span>Network ranges details</span>
+                    <a id="NetworkDetails" href="#">Click to open</a>
+                </p>
+
+                <p class="heading-col">
+                    <span>Assets details</span>
+                    <a id="AssetsDetails" href="#">Click to open</a>
+                </p>
+            </div>
         </div>
 
         <div class="panel-body">
-            <div class="columns column-with-separator">
-                <div class="scan-summary">
-                    <img src="img/alert.png">
-                    <p><a href="#" id="assetsnbr">2</a> Assets could be accessed if <a href="#" id="fqdn">win10-u.demo.airgap.in</a> is compromised by an attacker</p>
+            <div class="main-col-wrapper-3">
+                <div class="column-with-separator">
+                    <div class="scan-summary">
+                        <img src="img/alert.png">
+                        <p><a href="#" id="assetsnbr">2</a> Assets could be accessed if <a href="#" id="fqdn">win10-u.demo.airgap.in</a> is compromised by an attacker</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="columns">
-                <div class="column-1">
-                    <p>
-                        <span>Date and time</span>
-                        <span class="jscontent" id="datetime">10.30.1.11</span>
-                    </p>
+            <div class="main-col-wrapper-9">
+                <div class="row-wrapper">
+                    <div class="column-1">
+                        <p>
+                            <span>Duration</span>
+                            <span class="jscontent" id="duration">00:00:05</span>
+                        </p>
+                    </div>
 
-                    <p>
-                        <span>Duration</span>
-                        <span class="jscontent" id="duration">00:00:05</span>
-                    </p>
+                    <div class="column-2">
+                        <p>
+                            <span>Scan mode</span>
+                            Managed - Quick
+                        </p>
+                    </div>
+                    <div class="column-3">
+                        <p>
+                            <span>Scanned from</span>
+                            <span class="jscontent" id="fqdn2">win10-u.demo.airgap.in</span><span class="ip-addr" id="ipaddr">10.30.1.11</span>
+                        </p>
+                    </div>
                 </div>
 
-                <div class="column-2">
-                    <p>
-                        <span>Scanned by</span>
-                        <span class="jscontent" id="username">Alice</span>
-                    </p>
 
-                    <p>
-                        <span>Scan mode</span>
-                        Managed - Quick
-                    </p>
+                <div class="row-wrapper">
+                    <div class="pie-chart-wrapper">
+                        <div class="pie-chart-inner">
+                            <div id="pieChart" class="pie-chart"></div>
+                            <!--                        <div class="chart-border"></div>-->
+                        </div>
+                        <div class="pie-chart-info">
+                            <h3>Summary</h3>
+                            <ul>
+                                <li id="acc_per">Accessible 85%</li>
+                                <li id="inacc_per">Inaccessible 15%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="vertical-bars-wrapper">
+                        <div class="vertical-bar-item">
+                            <div class="vertical-bar">
+                                <span id="clients_percentage_number">50%</span>
+                                <div class="vertical-bar-filled" style="height: 50%" id="clients_percentage_bar"></div>
+                            </div>
+                            <p id="clients_label">Clients</p>
+                        </div>
+
+                        <div class="vertical-bar-item">
+                            <div class="vertical-bar">
+                                <span id="servers_percentage_number">95%</span>
+                                <div class="vertical-bar-filled" style="height: 95%" id="servers_percentage_bar"></div>
+                            </div>
+                            <p id="servers_label">Servers</p>
+                        </div>
+
+                        <div class="vertical-bar-item">
+                            <div class="vertical-bar">
+                                <span id="unknown_percentage_number">95%</span>
+                                <div class="vertical-bar-filled" style="height: 95%" id="unknown_percentage_bar"></div>
+                            </div>
+                            <p id="unknown_label">Unknown</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="columns">
-                <div class="column-3">
-                    <p>
-                        <span>Scanned from</span>
-                        <span class="jscontent" id="fqdn2">win10-u.demo.airgap.in</span><span class="ip-addr" id="ipaddr">10.30.1.11</span>
-                    </p>
-                </div>
 
-                <div class="column-1">
-                    <p>
-                        <span>Network ranges details</span>
-                        <a id="NetworkDetails" href="#">Click to open</a>
-                    </p>
-                </div>
-
-                <div class="column-2">
-                    <p>
-                        <span>Assets details</span>
-                        <a id="AssetsDetails" href="#">Click to open</a>
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -92,14 +148,8 @@
                         <div id="osPie" class="pie-chart pie-chart-fix"></div>
 <!--                        <div class="chart-border"></div>-->
                     </div>
-                    <div class="pie-chart-info">
-                        <ul>
-                            <li class="color-blue">Windows 10 Enterprise Evaluation 45%</li>
-                            <li class="color-yellow">Ubuntu 16.04.7 LTS 20%</li>
-                            <li class="color-red">Windows Server 2019 Essentials 15%</li>
-                            <li class="color-purple">Red Hat Enterprise Linux 8 12%</li>
-                            <li class="color-light-blue">Other 8%</li>
-                        </ul>
+                    <div class="pie-chart-info" id="os_labels_array">
+
                     </div>
                 </div>
             </div>
@@ -120,18 +170,12 @@
                 <div id="panelTab1" class="panel-tabs active">
                     <div class="pie-chart-wrapper">
                         <div class="pie-chart-inner pie-chart-width-fix">
-                            <div id="clientsPorts" class="pie-chart pie-chart-fix"></div>
+                            <div id="serversPorts" class="pie-chart pie-chart-fix"></div>
                             <!--                        <div class="chart-border"></div>-->
                         </div>
                         <div class="pie-chart-info">
-                            <h3>Most common on Clients</h3>
-                            <ul class="two-cols-list">
-                                <li class="color-blue">135 48%</li>
-                                <li class="color-yellow">139 16%</li>
-                                <li class="color-red">21 16%</li>
-                                <li class="color-light-blue">80 10%</li>
-                                <li class="color-purple">110 8%</li>
-                                <li class="color-green">Other 2%</li>
+                            <h3>Most common on Servers</h3>
+                            <ul class="two-cols-list" id="ports_servers_labels_array">
                             </ul>
                         </div>
                     </div>
@@ -140,18 +184,12 @@
                 <div id="panelTab2" class="panel-tabs">
                     <div class="pie-chart-wrapper">
                         <div class="pie-chart-inner pie-chart-width-fix">
-                            <div id="serversPorts" class="pie-chart pie-chart-fix"></div>
+                            <div id="clientsPorts" class="pie-chart pie-chart-fix"></div>
                             <!--                        <div class="chart-border"></div>-->
                         </div>
                         <div class="pie-chart-info">
-                            <h3>Most common on Servers</h3>
-                            <ul class="two-cols-list">
-                                <li class="color-blue">135 48%</li>
-                                <li class="color-yellow">139 16%</li>
-                                <li class="color-red">21 16%</li>
-                                <li class="color-light-blue">80 10%</li>
-                                <li class="color-purple">110 8%</li>
-                                <li class="color-green">Other 2%</li>
+                            <h3>Most common on Clients</h3>
+                            <ul class="two-cols-list" id="ports_clients_labels_array">
                             </ul>
                         </div>
                     </div>
@@ -165,13 +203,7 @@
                         </div>
                         <div class="pie-chart-info">
                             <h3>Most common on Unknown</h3>
-                            <ul class="two-cols-list">
-                                <li class="color-blue">135 48%</li>
-                                <li class="color-yellow">139 16%</li>
-                                <li class="color-red">21 16%</li>
-                                <li class="color-light-blue">80 10%</li>
-                                <li class="color-purple">110 8%</li>
-                                <li class="color-green">Other 2%</li>
+                            <ul class="two-cols-list" id="ports_unknown_labels_array">
                             </ul>
                         </div>
                     </div>
@@ -235,49 +267,43 @@
 
         <div class="panel first-column">
             <div class="panel-title">
-                <h2>Assets accessibility</h2>
+                <h2>Vulnerabilities to Ransomware Attack</h2>
             </div>
 
             <div class="panel-body charts-panel">
-                <div class="pie-chart-wrapper">
-                    <div class="pie-chart-inner">
-                        <div id="pieChart" class="pie-chart"></div>
-<!--                        <div class="chart-border"></div>-->
+                <div class="histogram">
+                    <div class="histogram-heading">
+                        <p>Name</p>
+                        <p>Amt. of Bytes</p>
                     </div>
-                    <div class="pie-chart-info">
-                        <h3>Summary</h3>
-                        <ul>
-                            <li id="acc_per">Accessible 85%</li>
-                            <li id="inacc_per">Inaccessible 15%</li>
-                        </ul>
-                    </div>
-                </div>
+                    <div class="histogram-body">
 
-                <div class="vertical-bars-wrapper">
-                    <div class="vertical-bar-item">
-                        <div class="vertical-bar">
-                            <span id="clients_percentage_number">50%</span>
-                            <div class="vertical-bar-filled" style="height: 50%" id="clients_percentage_bar"></div>
+                        <div class="histogram-row">
+                            <div class="histogram-row-name-value" style="width: 100%">TCP/UDP 137 port</div>
+                            <div class="histogram-row-data-value">Ryuk</div>
                         </div>
-                        <p id="clients_label">Clients</p>
-                    </div>
 
-                    <div class="vertical-bar-item">
-                        <div class="vertical-bar">
-                            <span id="servers_percentage_number">95%</span>
-                            <div class="vertical-bar-filled" style="height: 95%" id="servers_percentage_bar"></div>
+                        <div class="histogram-row">
+                            <div class="histogram-row-name-value" style="width: 80%">UDP 138 port</div>
+                            <div class="histogram-row-data-value">WannaCry</div>
                         </div>
-                        <p id="servers_label">Servers</p>
-                    </div>
 
-                    <div class="vertical-bar-item">
-                        <div class="vertical-bar">
-                            <span id="unknown_percentage_number">95%</span>
-                            <div class="vertical-bar-filled" style="height: 95%" id="unknown_percentage_bar"></div>
+                        <div class="histogram-row">
+                            <div class="histogram-row-name-value" style="width: 70%">TCP 139 port</div>
+                            <div class="histogram-row-data-value">Troldesh</div>
                         </div>
-                        <p id="unknown_label">Unknown</p>
-                    </div>
 
+                        <div class="histogram-row">
+                            <div class="histogram-row-name-value" style="width: 60%">TCP 445 port</div>
+                            <div class="histogram-row-data-value">Jigsaw</div>
+                        </div>
+
+                        <div class="histogram-row">
+                            <div class="histogram-row-name-value" style="width: 40%">TCP 139 port</div>
+                            <div class="histogram-row-data-value">CryptoLocker</div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,14 +322,109 @@
             <!-- IP RANGES ACCORDION -->
             <div class="content-item active" id="tabs-content-1">
 
-                <div class="accordion">
-                    <div class="accordion-item" id="main-parent" data-target="main-area"></div>
-                    <div class="accordion-item-content" id="accordionWrapper" data-expand="main-area">
+                <table id="ipTable" class="ip-ranges-table">
+                    <thead>
+                    <tr>
+                        <th>IP Address</th>
+                        <th>Hostname</th>
+                        <th>OS</th>
+                        <th>TCP Open Ports</th>
+                    </tr>
+                    </thead>
 
-                        <!-- POPULATED BY JS -->
-
-                    </div>
-                </div>
+                    <tbody>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>192.168.0.12</td>
+                        <td>PC-name</td>
+                        <td>Windows 10</td>
+                        <td>21</td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
             <!-- END OF IP RANGES ACCORDION -->
@@ -332,6 +453,8 @@
         </div>
     </div>
 
+
+
     <footer>
         <ul>
             <li><a target="_blank" href="https://airgap.io/">How to reach us</a></li>
@@ -339,13 +462,6 @@
             <li><a target="_blank" href="https://airgap.io/terms-and-conditions/">Our Terms of Use</a></li>
             <li><a target="_blank" href="https://airgap.io/eula/">Our EULA</a></li>
         </ul>
-
-        <div class="contact-info">
-            <ul>
-                <li><a href="tel:+14154808075" target="_blank" rel="noopener noreferrer">+1 415 480 8075</a></li>
-                <li><a href="mailto:info@airgap.io" target="_blank" rel="noopener noreferrer">info@airgap.io</a></li>
-            </ul>
-        </div>
     </footer>
 </div>
 
@@ -364,6 +480,7 @@
 <script src="js/custom_chart.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="js/populate.js"></script>
 <script src="js/custom_modal.js"></script>
 <script src="js/share_report.js"></script>
@@ -372,6 +489,19 @@
 <script src="js/accordion.js"></script>
 <script src="js/os.js"></script>
 <script src="js/ports.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#ipTable').DataTable({
+            language: {
+                searchPlaceholder: "Search...",
+                search: "",
+                lengthMenu: "Rows per page _MENU_",
+            }
+        });
+    });
+</script>
+
 
 </body>
 </html>

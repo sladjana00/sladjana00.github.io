@@ -1,0 +1,432 @@
+.panel {
+  margin-top: 36px;
+  box-shadow: 0 17px 41px rgba(79, 115, 255, 0.08), 0 2.12866px 5.13384px rgba(79, 115, 255, 0.04);
+  border-radius: 4px;
+
+  @media (max-width: 575px) {
+    margin-top: 20px;
+  }
+
+  &.first-panel-section {
+    .panel-title {
+      display: flex;
+
+      .heading-row-wrapper-2, .heading-row-wrapper-10 {
+        &.heading-row-wrapper-2 {
+          width: 30%;
+        }
+
+        &.heading-row-wrapper-10 {
+          width: 70%;
+          display: flex;
+
+          .heading-col {
+            width: 25%;
+
+            a {
+              font-size: 14px;
+              color: $medium-slate-blue;
+            }
+
+            span {
+              display: block;
+              font-size: 12px;
+              color: $bright-grey;
+
+              &.jscontent {
+                font-size: 14px;
+                letter-spacing: 1px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .panel-body {
+      @media (max-width: 991px) {
+        flex-wrap: wrap;
+      }
+
+      .column-with-separator {
+        &:after {
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .panel-title {
+    background-color: $pattens-blue;
+    border-radius: 4px 4px 0 0;
+    padding: 22px 0 10px 33px;
+
+    @media (max-width: 767px) {
+      padding: 15px;
+    }
+
+    h2 {
+      font-size: 20px;
+      letter-spacing: 0.4px;
+      font-weight: 500;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .panel-body {
+    padding: 24px 33px 28px 33px;
+    background-color: $white;
+    display: flex;
+
+    @media (max-width: 767px) {
+      padding: 20px 15px;
+    }
+
+    @media (max-width: 575px) {
+      display: block;
+    }
+
+    &.charts-panel {
+      display: block;
+    }
+
+    .main-col-wrapper-9, .main-col-wrapper-3 {
+      .row-wrapper {
+        display: flex;
+
+        .column-1, .column-2, .column-3 {
+          width: 25%;
+          float: none;
+
+          &.column-3 {
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    .main-col-wrapper-3 {
+      width: 30%;
+    }
+
+    .main-col-wrapper-9 {
+      width: 70%;
+      padding-left: 25px;
+    }
+
+
+    &.column-with-separator {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 100px;
+        background-color: $hawkes-blue;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: $bright-grey;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+
+      span {
+        font-size: 12px;
+        color: $echo-blue;
+        font-weight: 400;
+        display: block;
+        letter-spacing: 0;
+      }
+
+      span.ip-addr {
+        font-size: 14px;
+        color: $bright-grey;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        display: inline-block;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 1px;
+          height: 12px;
+          margin: 0 6px;
+          background-color: $hawkes-blue;
+        }
+      }
+
+      span.jscontent {
+        font-size: 14px;
+        color: $bright-grey;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+
+      a {
+        color: $royal-blue;
+        font-size: 14px;
+        text-decoration: none;
+      }
+    }
+
+    .scan-summary {
+      position: relative;
+      background-color: $ghost-white;
+      border-radius: 4px;
+      padding: 17px 16px 17px 16px;
+
+      @media (max-width: 767px) {
+        padding: 10px;
+      }
+
+      @media (max-width: 575px) {
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+      }
+
+      img {
+        position: absolute;
+      }
+
+      p {
+        margin-left: 40px;
+        margin-bottom: 0;
+        color: $manatee;
+      }
+    }
+
+    .column-1, .column-2 {
+      width: 50%;
+      display: block;
+      float: left;
+
+      @media (max-width: 575px) {
+        width: 100%;
+        float: none;
+      }
+    }
+
+    .column-3 p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.panels-wrapper {
+  display: table;
+  width: 100%;
+
+  @media (max-width: 575px) {
+    display: block;
+  }
+
+  .panel {
+    &.first-column, &.second-column {
+      @media (max-width: 991px) {
+        width: 100%;
+        float: none
+      }
+    }
+
+    &.first-column {
+      width: 66%;
+      float: left;
+    }
+
+    &.second-column {
+      width: 31%;
+      float: left;
+      margin-right: 3%;
+
+      .panel-body {
+        display: block;
+      }
+    }
+  }
+
+  &.panel-50-50 {
+    .panel-body {
+      min-height: 217px;
+    }
+
+    .panel {
+      &.first-column {
+        width: 48%;
+        margin-right: 4%;
+      }
+
+      &.second-column {
+        width: 48%;
+        margin-right: 0;
+      }
+
+      .panel-title {
+        display: flex;
+        padding: 22px 33px 10px 33px;
+        justify-content: space-between;
+
+        @media (max-width: 575px) {
+          padding: 15px;
+        }
+
+        ul li {
+          display: inline-block;
+          margin-left: 10px;
+          font-size: 18px;
+          cursor: pointer;
+          color: $echo-blue;
+          position: relative;
+
+          @media (max-width: 575px) {
+            font-size: 14px;
+          }
+
+          &.active {
+            color: $midnight-express;
+
+            &:before {
+              content: "";
+              position: absolute;
+              display: block;
+              width: 100%;
+              top: -22px;
+              background-color: $royal-blue;
+              height: 4px;
+              border-bottom-left-radius: 5px;
+              border-bottom-right-radius: 5px;
+            }
+          }
+        }
+      }
+
+      .panel-tabs {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+
+      .charts-panel {
+        padding-left: 18px;
+
+        @media (max-width: 767px) {
+          min-height: 210px;
+        }
+
+        .pie-chart-inner {
+          width: 39%;
+
+          @media (max-width: 575px) {
+            width: 100%;
+            height: 170px;
+          }
+
+          &.pie-chart-width-fix {
+            width: 40%;
+            min-height: 165px;
+          }
+        }
+
+        .pie-chart-info {
+          width: 60%;
+
+          ul {
+            li.color-blue:before {
+              background-color: $royal-blue;
+            }
+
+            li.color-yellow:before {
+              background-color: $golden-poppy;
+            }
+
+            li.color-red:before {
+              background-color: $tomato;
+            }
+
+            li.color-purple:before {
+              background-color: $medium-slate-blue;
+            }
+
+            li.color-light-blue:before {
+              background-color: $maya-blue;
+            }
+
+            li.color-green:before {
+              background-color: $medium-spring-green;
+            }
+          }
+        }
+
+        .pie-chart-wrapper {
+          float: none;
+          width: 100%;
+
+          @media (max-width: 575px) {
+            height: auto;
+            display: block;
+          }
+
+          &:after {
+            display: none;
+          }
+
+          .pie-chart {
+            &.pie-chart-fix {
+              width: 180px;
+              height: 202px;
+
+              svg g g g:last-child {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.two-cols-list li {
+  display: inline-block;
+  width: 49%;
+}
+
+@media (max-width: 991px) {
+  .panel-50-50.panels-wrapper .panel.first-column {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .panel-50-50.panels-wrapper .panel.second-column {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .panel-50-50.panels-wrapper .panel .charts-panel .pie-chart-wrapper .pie-chart-info h3 {
+    position: relative;
+    z-index: 5;
+  }
+
+  .panel-50-50.panels-wrapper .panel.second-column .panel-title h2 {
+    max-width: 75px;
+  }
+
+  .panel-50-50.panels-wrapper .panel .panel-title ul li.active:before {
+    top: -17px;
+  }
+}

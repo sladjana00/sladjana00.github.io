@@ -1,0 +1,25 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    list-style: none;
+    padding-top: 30px;
+    padding-bottom: 15px;
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+
+      a {
+        color: $royal-blue;
+        text-decoration: none;
+        font-size: 14px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

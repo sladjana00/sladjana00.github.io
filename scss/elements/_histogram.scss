@@ -1,0 +1,35 @@
+.histogram {
+  .histogram-heading {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-weight: 500;
+      color: $bright-grey;
+    }
+  }
+
+  .histogram-body {
+    .histogram-row {
+      margin-bottom: 10px;
+      position: relative;
+
+      .histogram-row-name-value, .histogram-row-data-value {
+        color: $bright-grey;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .histogram-row-name-value {
+        background: linear-gradient(90deg, rgba(255, 107, 95, 0.4) 0%, rgba(255, 107, 95,0.05) 100%);
+        padding: 4px 0 2px 16px;
+      }
+
+      .histogram-row-data-value {
+        position: absolute;
+        top: 4px;
+        right: 16px;
+      }
+    }
+  }
+}
